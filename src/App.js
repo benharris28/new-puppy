@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom'
+import Checklist from './Routes/Checklist/Checklist';
+import LandingPage from './Routes/LandingPage/LandingPage';
+import NotFoundPage from './Routes/NotFoundPage/NotFoundPage';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Switch>
+            <Route
+              exact
+              path={'/'}
+              component={LandingPage}
+            />
+            <Route
+              exact
+              path={'/checklist'}
+              component={Checklist}
+              />
+            
+            <Route
+              component={NotFoundPage}
+            />
+          </Switch>
     </div>
-  );
+  )
+}
 }
 
 export default App;
