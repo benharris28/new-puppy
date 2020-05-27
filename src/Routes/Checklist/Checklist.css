@@ -6,12 +6,20 @@
     margin-left: auto;
 }
 
+.page-header {
+    display: flex;
+    min-height: 420px;
+    padding: 100px 3%;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5fbfc;
+}
 .checklist-card-container {
     width: 90%;
     margin: auto;
 }
 .checklist-card {
-    display: flex;
+    
     min-height: 200px;
     padding: 25px;
     align-items: center;
@@ -21,6 +29,7 @@
     border-radius: 6px;
     background-color: #fff;
     transition: border-color 300ms ease;
+    text-align: left;
 
 }
 
@@ -38,25 +47,23 @@
     margin-right: 30px;
     border-radius: 8px;
     object-fit: cover;
+    margin-bottom: 20px;
 }
 
 .checklist-card-content {
     width: 100%;
 }
 
+.tabs {
+    margin-top: 40px;
+  
+}
 .tabs-menu {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     margin-bottom: 40px;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
+    margin-top: 20px;
     justify-content: center;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    
   }
 
 .checklist-tab-button {
@@ -64,8 +71,8 @@
     min-height: 52px;
     margin-right: 15px;
     margin-left: 15px;
-    padding-right: 45px;
-    padding-left: 45px;
+    padding-right: 20px;
+    padding-left: 20px;
     justify-content: center;
     align-items: center;
     border-style: solid;
@@ -74,4 +81,35 @@
     border-radius: 6px;
     background-color: transparent;
     font-size: 16px;
+  }
+
+  .stock-image {
+        overflow: hidden;
+        width: 100%;
+        height: 220px;
+        min-height: 120px;
+        min-width: 120px;
+        margin: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        background-color: grey;
+    
+  }
+
+  .checklist-card-button {
+    display: flex;
+    min-height: 45px;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #35b8be;
+    color: white;
+    padding: 10px;
+  }
+
+  .checklist-card-button p {
+      color: white;
+  }
+
+  .price {
+    color: #35b8be;
   }

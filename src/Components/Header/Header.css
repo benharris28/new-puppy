@@ -1,0 +1,65 @@
+.nav-link {
+    padding-right: 16px;
+    padding-left: 16px;
+    opacity: 0.8;
+    -webkit-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+    color: #28224b;
+    font-size: 16px;
+    text-transform: none;
+  }
+  
+  .nav-link:hover {
+    opacity: 1;
+    color: #28224b;
+  }
+  
+  .nav-link.w--current {
+    color: #35b8be;
+  }
+  
+  .navigation-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    margin-right: 40px;
+  }
+  
+  .navbar {
+    display: flex;
+    padding: 20px 3%;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .navigation-right {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .navigation-left {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    margin-right: 14px;
+  }
