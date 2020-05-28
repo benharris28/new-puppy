@@ -1,15 +1,21 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleRight, faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons'
+import FoodData from '../../BackupData/FoodData';
 import './FoodCard.css';
 
 
 class FoodCard extends React.Component {
     state = {
-        selectedOption: 1
+        selectedOption: 2
     }
+
+    
     
     render() {
+        const { selectedOption } = this.state;
+        const selectedFood = FoodData.food.find(selected => selectedOption == selected.id)
+        console.log(selectedFood)
         return(
             <>
                 <div className="checklist-intro">
@@ -20,7 +26,7 @@ class FoodCard extends React.Component {
                         <button>
                             <FontAwesomeIcon className="arrow-icon" icon={faArrowCircleLeft} />
                         </button>
-                        <h6>Option 1: Fresh Food</h6>
+                        <h6>{`Option ${selectedOption}: ${selectedFood.category}`}</h6>
                         <button>
                             <FontAwesomeIcon className="arrow-icon" icon={faArrowCircleRight} />
                         </button>
@@ -34,13 +40,13 @@ class FoodCard extends React.Component {
                     </div>
                     <div className="checklist-card-content">
                         <div className="title-wrap">
-                            <h6>Farmer's Dog</h6>
-                            <p className="price">$300 per month (Estimate)</p>
+                            <h6>{selectedFood.brand}</h6>
+                            <p className="price">{selectedFood.cost_small_dog}</p>
                         </div>
                         
-                        <p>Essential for training your pup to sleep through the night</p>
+                        <p>{selectedFood.description_text}</p>
                         <div className="checklist-card-button">
-                            <p>Subscribe to Farmer's Dog</p>
+                            <p>{selectedFood.purchase_text}</p>
                         </div>
 
                     </div>
