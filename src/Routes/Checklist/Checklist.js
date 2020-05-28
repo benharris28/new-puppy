@@ -1,13 +1,45 @@
-import React from 'react'
+import React from 'react';
+import ChecklistCard from '../../Components/ChecklistCard/ChecklistCard';
+import FoodCard from '../../Components/FoodCard/FoodCard'
 import './Checklist.css'
 
 class Checklist extends React.Component {
+    state = {
+        openTab: 1
+    }
+    
+    handleTabClick = (e) => {
+        this.setState({
+            openTab: e
+        })
+    }
+
+    renderTabIntro = () => {
+        
+    }
+
+    renderTab = () => {
+        const { openTab } = this.state;
+        if (openTab == 1) {
+            return <ChecklistCard />
+        }
+
+        if (openTab == 2) {
+            return <FoodCard />
+        }
+    }
+    
     render() {
+        const tabDisplay = this.renderTab();
+        console.log(this.state)
         return(
             <div>
                 <div className="page-header">
                     <div className="title-wrap">
                         <h1>Puppy Russell's Checklist</h1>
+                    </div>
+                    <div className="bring-home-date">
+                        <p>Arriving home June 3rd!</p>
                     </div>
                 </div>
                 <div className="content">
@@ -17,40 +49,38 @@ class Checklist extends React.Component {
                                 <h6>Get the gear (1/4)</h6>
                             </div>
                             <div className="tabs-menu">
-                                <button className="checklist-tab-button">
+                                <button 
+                                    className="checklist-tab-button"
+                                    value="1"
+                                    onClick={e => this.handleTabClick(e.target.value)}>
                                     1
                                 </button>
-                                <button className="checklist-tab-button">
+                                <button 
+                                    className="checklist-tab-button"
+                                    value="2"
+                                    onClick={e => this.handleTabClick(e.target.value)}>
                                     2
                                 </button>
-                                <button className="checklist-tab-button">
+                                <button 
+                                    className="checklist-tab-button"
+                                    value="3"
+                                    onClick={e => this.handleTabClick(e.target.value)}>
                                     3
                                 </button>
-                                <button className="checklist-tab-button">
+                                <button 
+                                    className="checklist-tab-button"
+                                    value="4"
+                                    onClick={e => this.handleTabClick(e.target.value)}>
                                     4
                                 </button>
                             </div>
                             <div className="tabs-content">
+                                
                                 <div className="checklist-card-container">
-                                    <div className="checklist-card">
-                                        <div className="checklist-card-image">
-                                            <div className="stock-image"></div>
-                                        </div>
-                                        <div className="checklist-card-content">
-                                            <div className="title-wrap">
-                                                <h6>Dog Crate</h6>
-                                                <p className="price">$100 - $150</p>
-                                            </div>
-                                            
-                                            <p>Essential for training your pup to sleep through the night</p>
-                                            <div className="checklist-card-button">
-                                                <p>Buy this crate</p>
-                                            </div>
-
-                                        </div>
-
-                                        
-                                    </div>
+                                    
+                                    
+                                  
+                                    {tabDisplay}
                                 </div>
                             </div>
                         </div>

@@ -7,13 +7,29 @@
 }
 
 .page-header {
-    display: flex;
     min-height: 420px;
     padding: 100px 3%;
     justify-content: center;
     align-items: center;
     background-color: #f5fbfc;
 }
+
+.bring-home-date {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(53,184,190,0.15);
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border-color 300ms ease;
+    width: 90%;
+    margin: auto;
+    
+}
+
+.bring-home-date p {
+    color: #35b8be;
+}
+
 .checklist-card-container {
     width: 90%;
     margin: auto;
