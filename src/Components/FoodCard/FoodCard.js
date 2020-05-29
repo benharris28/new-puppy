@@ -10,12 +10,25 @@ class FoodCard extends React.Component {
         selectedOption: 2
     }
 
-    
+    handleForward = () => {
+        this.setState({
+            selectedOption: this.state.selectedOption + 1
+        })
+    }
+
+    handleBackward = () => {
+        this.setState({
+            selectedOption: this.state.selectedOption - 1
+        })
+    }
     
     render() {
         const { selectedOption } = this.state;
+        const totalItems = FoodData.food.length;
+        console.log(totalItems)
         const selectedFood = FoodData.food.find(selected => selectedOption == selected.id)
         console.log(selectedFood)
+        console.log(this.state)
         return(
             <>
                 <div className="checklist-intro">
@@ -23,13 +36,27 @@ class FoodCard extends React.Component {
                 </div>
                 <div className="next-arrow">
                     <div className="arrow-container">
+                        {selectedOption > 1 &&
                         <button>
-                            <FontAwesomeIcon className="arrow-icon" icon={faArrowCircleLeft} />
+                            <FontAwesomeIcon 
+                                className="arrow-icon" 
+                                icon={faArrowCircleLeft}
+                                onClick={this.handleBackward}
+                                 />
                         </button>
+                        }
+                        
                         <h6>{`Option ${selectedOption}: ${selectedFood.category}`}</h6>
+                       
+                       {selectedOption < totalItems && 
                         <button>
-                            <FontAwesomeIcon className="arrow-icon" icon={faArrowCircleRight} />
+                            <FontAwesomeIcon 
+                                className="arrow-icon" 
+                                icon={faArrowCircleRight} 
+                                onClick={this.handleForward}/>
                         </button>
+                       }
+
                     </div>
                     
 
