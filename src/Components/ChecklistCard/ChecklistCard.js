@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquare} from '@fortawesome/free-solid-svg-icons'
+
+import { faSquare} from '@fortawesome/free-regular-svg-icons'
+
 
 class ChecklistCard extends React.Component {
     render() {
@@ -31,10 +33,11 @@ class ChecklistCard extends React.Component {
                                             Mark done
                                         </div>
                                         <FontAwesomeIcon 
-                                            className="square-icon" 
+                                            className="square-icon-non-hover" 
                                             icon={faSquare}
                                             onClick={this.handleBackward}
                                         />
+                                        
                                 </div>
                             
                         </div>

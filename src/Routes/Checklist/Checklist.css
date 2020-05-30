@@ -199,7 +199,12 @@
     justify-content: flex-start;
 }
 
-.square-icon {
+.square-icon-non-hover {
+    min-height: 40px;
+    min-width: 40px;
+}
+
+.square-icon:hover {
     min-height: 40px;
     min-width: 40px;
 }
