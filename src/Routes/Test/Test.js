@@ -1,7 +1,8 @@
 import React from 'react';
 import ChecklistCard from '../../Components/ChecklistCard/ChecklistCard';
 import FoodCard from '../../Components/FoodCard/FoodCard'
-import { faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown, faChevronUp, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import '../Checklist/Checklist.css'
 
 class Test extends React.Component {
@@ -118,14 +119,21 @@ class Test extends React.Component {
                             
                             <div className="tabs-menu-test">
                                 <div 
-                                    className="checklist-tab-button"
+                                    className="checklist-tab-button-test"
                                     onClick={e => this.handleTabOne("tabOne")}>
-                                    Get the Gear
+                                        <div className="tab-title">
+                                            Get the gear
+                                        </div>
+                                    
                                         <div className="progress-tracker">
                                             5/8
                                         </div>
                                         <div className="dropdown-icon">
-
+                                            <FontAwesomeIcon 
+                                            className="arrow-icon" 
+                                            icon={faChevronRight}
+                                            onClick={this.handleBackward}
+                                            />
                                         </div>
                                 </div>
                                 {tabOne &&
@@ -142,14 +150,21 @@ class Test extends React.Component {
 
 
                                  <div 
-                                    className="checklist-tab-button"
+                                    className="checklist-tab-button-test"
                                     onClick={e => this.handleTabTwo("tabTwo")}>
-                                    Find the right food
+                                        <div className="tab-title">
+                                            Find the right food
+                                        </div>
+                                    
                                         <div className="progress-tracker">
                                             5/8
                                         </div>
                                         <div className="dropdown-icon">
-
+                                            <FontAwesomeIcon 
+                                                className="arrow-icon" 
+                                                icon={faChevronRight}
+                                                onClick={this.handleBackward}
+                                            />
                                         </div>
                                 </div>
                                 {tabTwo &&

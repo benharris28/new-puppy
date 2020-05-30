@@ -1,11 +1,13 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquare} from '@fortawesome/free-solid-svg-icons'
 
 class ChecklistCard extends React.Component {
     render() {
         return(
             <>
                 <div className="tabs-intro">
-                    <h5>Tip from the pro</h5>
+                    <h5>Get the gear</h5>
                     <p>Fake Name, founder of Fake Pet Trainers, has listed out the following items as absolutely essential when bring home a new puppy!</p>
                 </div>
                 <div className="checklist-card">
@@ -19,9 +21,24 @@ class ChecklistCard extends React.Component {
                         </div>
                         
                         <p>Essential for training your pup to sleep through the night</p>
-                        <div className="checklist-card-button">
-                            <p>Buy this crate</p>
+                        <div className="button-container">
+                            <div className="checklist-card-button">
+                                <p>Buy this crate</p>
+                            </div>
+                            
+                                <div className="checkmark-box">
+                                        <div className="help-text">
+                                            Mark done
+                                        </div>
+                                        <FontAwesomeIcon 
+                                            className="square-icon" 
+                                            icon={faSquare}
+                                            onClick={this.handleBackward}
+                                        />
+                                </div>
+                            
                         </div>
+                        
 
                     </div>
 
