@@ -1,13 +1,79 @@
 import React from 'react';
 import ChecklistCard from '../../Components/ChecklistCard/ChecklistCard';
 import FoodCard from '../../Components/FoodCard/FoodCard'
+import { faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'
 import '../Checklist/Checklist.css'
 
 class Test extends React.Component {
     state = {
-        openTab: 1
+        openTab: 1,
+        tabOne: false,
+        tabTwo: false,
+        tabThree: false,
+        tabFoud: false
+
     }
     
+    handleTabOne = () => {
+        const {tabOne} = this.state;
+        if (tabOne) {
+
+            this.setState({
+                tabOne: false
+            })
+        }
+        if (!tabOne) {
+            this.setState({
+                tabOne: true
+            })
+        }
+    }
+
+    handleTabTwo = () => {
+        const {tabTwo} = this.state;
+        if (tabTwo) {
+
+            this.setState({
+                tabTwo: false
+            })
+        }
+        if (!tabTwo) {
+            this.setState({
+                tabTwo: true
+            })
+        }
+    }
+
+    handleTabThree = () => {
+        const {tabThree} = this.state;
+        if (tabThree) {
+
+            this.setState({
+                tabThree: false
+            })
+        }
+        if (!tabThree) {
+            this.setState({
+                tabThree: true
+            })
+        }
+    }
+
+    handleTabFour = () => {
+        const {tabFour} = this.state;
+        if (tabFour) {
+
+            this.setState({
+                tabFour: false
+            })
+        }
+        if (!tabFour) {
+            this.setState({
+                tabFour: true
+            })
+        }
+    }
+
     handleTabClick = (e) => {
         this.setState({
             openTab: e
@@ -30,6 +96,7 @@ class Test extends React.Component {
     }
     
     render() {
+        const { openTab, tabOne, tabTwo, tabThree, tabFour } = this.state;
         const tabDisplay = this.renderTab();
         console.log(this.state)
         return(
@@ -46,46 +113,59 @@ class Test extends React.Component {
                     <div className="container">
                         <div className="tabs">
                             <div className="tab-menu-title">
-                                <h6>Get the gear (1/4)</h6>
+                                <h6>Checklist Items</h6>
                             </div>
-                            <div className="tabs-menu">
+                            
+                            <div className="tabs-menu-test">
                                 <div 
                                     className="checklist-tab-button"
-                                    value="1"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    1
+                                    onClick={e => this.handleTabOne("tabOne")}>
+                                    Get the Gear
+                                        <div className="progress-tracker">
+                                            5/8
+                                        </div>
+                                        <div className="dropdown-icon">
+
+                                        </div>
                                 </div>
-                                <div className="tab-1-content">
-                                    
-                                </div>
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="2"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    2
-                                </button>
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="3"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    3
-                                </button>
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="4"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    4
-                                </button>
-                            </div>
-                            <div className="tabs-content">
+                                {tabOne &&
+                                <div className="tabs-content">
                                 
                                 <div className="checklist-card-container">
                                     
                                     
                                   
-                                    {tabDisplay}
+                                    <ChecklistCard />
                                 </div>
+                                </div>
+                                }
+
+
+                                 <div 
+                                    className="checklist-tab-button"
+                                    onClick={e => this.handleTabTwo("tabTwo")}>
+                                    Find the right food
+                                        <div className="progress-tracker">
+                                            5/8
+                                        </div>
+                                        <div className="dropdown-icon">
+
+                                        </div>
+                                </div>
+                                {tabTwo &&
+                                <div className="tabs-content">
+                                
+                                <div className="checklist-card-container">
+                                    
+                                    
+                                  
+                                    <FoodCard />
+                                </div>
+                                </div>
+                                }
+                                
                             </div>
+                           
                         </div>
                     </div>
                 </div>
