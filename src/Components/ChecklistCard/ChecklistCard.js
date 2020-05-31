@@ -37,7 +37,7 @@ class ChecklistCard extends React.Component {
                                             Mark done
                                         </div>
                                         <div
-                                            onClick={this.props.handleComplete(category)}>
+                                            onClick={() => this.props.handleComplete(category)}>
                                             <FontAwesomeIcon 
                                                 className="square-icon-non-hover" 
                                                 icon={faSquare}

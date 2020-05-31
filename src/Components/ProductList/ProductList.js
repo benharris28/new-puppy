@@ -21,6 +21,14 @@ class ProductList extends React.Component {
         if (item === "Dog Crate") {
             this.updateCrate()
         }
+
+        if (item === "Dog Bowl") {
+            this.updateBowl()
+        }
+
+        if (item === "Dog Bowl") {
+            this.updateBowl()
+        }
         
     }
     updateCrate = () => {
@@ -29,7 +37,30 @@ class ProductList extends React.Component {
             this.setState({
                 dog_crate: false
             })
-        } 
+
+        } else {
+            if (dog_crate === false) {
+                this.setState({
+                    dog_crate: true
+                })
+            }
+        }
+    }
+
+    updateBowl = () => {
+        const { dog_bowl } = this.state
+        if (dog_bowl === true) {
+            this.setState({
+                dog_bowl: false
+            })
+
+        } else {
+            if (dog_bowl === false) {
+                this.setState({
+                    dog_bowl: true
+                })
+            }
+        }
     }
     
     render() {
