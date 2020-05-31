@@ -17,6 +17,17 @@ class ProductList extends React.Component {
         treats: false,
     }
 
+    // Add patch to database
+
+    handleCounter = () => {
+        // Count true values in state
+        // Pass true values to context in App.js
+        
+        const counter = Object.values(this.state).filter(Boolean).length
+        this.context.handleProductCount(counter)
+    }
+    
+
     handleComplete = (item) => {
         if (item === "Dog Crate") {
             this.updateCrate()
@@ -26,8 +37,8 @@ class ProductList extends React.Component {
             this.updateBowl()
         }
 
-        if (item === "Dog Bowl") {
-            this.updateBowl()
+        if (item === "Dog Collar") {
+            this.updateCollar()
         }
         
     }
@@ -62,9 +73,27 @@ class ProductList extends React.Component {
             }
         }
     }
+
+    updateCollar = () => {
+        const { collar } = this.state
+        if (collar === true) {
+            this.setState({
+                collar: false
+            })
+
+        } else {
+            if (collar === false) {
+                this.setState({
+                    collar: true
+                })
+            }
+        }
+    }
     
     render() {
         console.log(this.state)
+        const counter = Object.values(this.state).filter(Boolean).length
+        console.log(counter)
         const { products } = this.context;
         const activeProducts = products.filter(product => product.active === true)
         
