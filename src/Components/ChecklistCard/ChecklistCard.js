@@ -2,9 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faSquare} from '@fortawesome/free-regular-svg-icons'
-
+import dogCrate from '../../Photos/dogCrate.jpg'
 
 class ChecklistCard extends React.Component {
+    
     render() {
         return(
             <>
@@ -13,9 +14,13 @@ class ChecklistCard extends React.Component {
                     <p>Fake Name, founder of Fake Pet Trainers, has listed out the following items as absolutely essential when bring home a new puppy!</p>
                 </div>
                 <div className="checklist-card">
-                    <div className="checklist-card-image">
-                        <div className="stock-image"></div>
-                    </div>
+                    
+                        <div className="checklist-image-square">
+                            <img src={dogCrate} alt="dog crate" className="checklist-image" />
+                        </div>
+                            
+        
+                   
                     <div className="checklist-card-content">
                         <div className="title-wrap">
                             <h6>Dog Crate</h6>
