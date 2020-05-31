@@ -5,40 +5,55 @@ import LandingPage from './Routes/LandingPage/LandingPage';
 import NotFoundPage from './Routes/NotFoundPage/NotFoundPage';
 import Test from './Routes/Test/Test';
 import Header from './Components/Header/Header';
+import ApiContext from './ApiContext';
+import ProductData from './BackupData/ProductData';
+import FoodData from './BackupData/FoodData';
 import './App.css';
 
 class App extends React.Component {
-  render() {
-  return (
-    <div className="App">
-      <header className='App_header'>
-          <Header 
-            locale={this.props.match}/>
-        </header>
-      
+  state = {
+    products: ProductData.products,
+    food: FoodData.food
+  }
 
-       <Switch>
-            <Route
-              exact
-              path={'/'}
-              component={LandingPage}
-            />
-            <Route
-              exact
-              path={'/checklist'}
-              component={Checklist}
+  render() {
+    const value= {
+      products: this.state.products,
+      food: this.state.food
+    }
+
+  return (
+    <ApiContext.Provider value={value}>
+      <div className="App">
+        <header className='App_header'>
+            <Header 
+              locale={this.props.match}/>
+          </header>
+        
+
+        <Switch>
+              <Route
+                exact
+                path={'/'}
+                component={LandingPage}
               />
-            <Route
-              exact
-              path={'/test'}
-              component={Test}
+              <Route
+                exact
+                path={'/checklist'}
+                component={Checklist}
+                />
+              <Route
+                exact
+                path={'/test'}
+                component={Test}
+                />
+              
+              <Route
+                component={NotFoundPage}
               />
-            
-            <Route
-              component={NotFoundPage}
-            />
-          </Switch>
-    </div>
+            </Switch>
+      </div>
+    </ApiContext.Provider>
   )
 }
 }

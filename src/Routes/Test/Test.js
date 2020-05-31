@@ -3,9 +3,14 @@ import ChecklistCard from '../../Components/ChecklistCard/ChecklistCard';
 import FoodCard from '../../Components/FoodCard/FoodCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import ProductList from '../../Components/ProductList/ProductList'
+import ApiContext from '../../ApiContext';
 import '../Checklist/Checklist.css'
 
 class Test extends React.Component {
+    
+    static contextType = ApiContext;
+
     state = {
         openTab: 1,
         tabOne: false,
@@ -99,6 +104,8 @@ class Test extends React.Component {
     render() {
         const { openTab, tabOne, tabTwo, tabThree, tabFour } = this.state;
         const tabDisplay = this.renderTab();
+        const { products, food } = this.context;
+        const activeProducts = products.filter(product => product.active === true)
         console.log(this.state)
         return(
             <div>
@@ -136,17 +143,14 @@ class Test extends React.Component {
                                             />
                                         </div>
                                 </div>
-                                {tabOne &&
-                                <div className="tabs-content">
                                 
-                                <div className="checklist-card-container">
-                                  {}  
+                                {tabOne && <ProductList />}  
                             
                                   
-                                    <ChecklistCard />
+                                   
                                 </div>
                                 </div>
-                                }
+                                
 
 
                                  <div 
@@ -167,6 +171,7 @@ class Test extends React.Component {
                                             />
                                         </div>
                                 </div>
+                                
                                 {tabTwo &&
                                 <div className="tabs-content">
                                 
@@ -183,8 +188,8 @@ class Test extends React.Component {
                            
                         </div>
                     </div>
-                </div>
-            </div>
+                
+            
         )
     }
 }

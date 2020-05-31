@@ -7,41 +7,44 @@ import dogCrate from '../../Photos/dogCrate.jpg'
 class ChecklistCard extends React.Component {
     
     render() {
-        return(
-            <>
-                <div className="tabs-intro">
-                    <h5>Get the gear</h5>
-                    <p>Fake Name, founder of Fake Pet Trainers, has listed out the following items as absolutely essential when bring home a new puppy!</p>
-                </div>
+        const { image, category, brand, price, description, purchaseText, purchaes_link } = this.props;
+        
+            return (
+            <> 
+                
                 <div className="checklist-card">
                     
                         <div className="checklist-image-square">
-                            <img src={dogCrate} alt="dog crate" className="checklist-image" />
+                            <img src={image} alt="product highlight" className="checklist-image" />
                         </div>
                             
         
                    
                     <div className="checklist-card-content">
                         <div className="title-wrap">
-                            <h6>Dog Crate</h6>
-                            <p className="price">$100 - $150</p>
+                            <h6>{category}</h6>
+                            <p className="price">{price}</p>
                         </div>
                         
-                        <p>Essential for training your pup to sleep through the night</p>
+                        <p>{description}</p>
                         <div className="button-container">
                             <div className="checklist-card-button">
-                                <p>Buy this crate</p>
+                                <p>{purchaseText}</p>
                             </div>
                             
                                 <div className="checkmark-box">
                                         <div className="help-text">
                                             Mark done
                                         </div>
-                                        <FontAwesomeIcon 
-                                            className="square-icon-non-hover" 
-                                            icon={faSquare}
-                                            onClick={this.handleBackward}
+                                        <div
+                                            onClick={this.props.handleComplete(category)}>
+                                            <FontAwesomeIcon 
+                                                className="square-icon-non-hover" 
+                                                icon={faSquare}
+                                            
                                         />
+                                        </div>
+                                        
                                         
                                 </div>
                             
