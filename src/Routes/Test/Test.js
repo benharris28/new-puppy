@@ -140,8 +140,8 @@ class Test extends React.Component {
                                 <div className="tabs-content">
                                 
                                 <div className="checklist-card-container">
-                                    
-                                    
+                                  {}  
+                            
                                   
                                     <ChecklistCard />
                                 </div>
