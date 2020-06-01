@@ -223,3 +223,20 @@
     width: 40%;
 }
 
+/* Food Card Styling */
+
+
+.food-card-button p {
+    color: white;
+}
+
+.food-card-button {
+    display: flex;
+    min-height: 45px;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #35b8be;
+    color: white;
+    padding: 10px;
+    
+  }

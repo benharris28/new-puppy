@@ -29,12 +29,16 @@ class FoodCard extends React.Component {
         const selectedFood = FoodData.food.find(selected => selectedOption == selected.id)
         console.log(selectedFood)
         console.log(this.state)
+        
         return(
             <>
                 <div className="checklist-intro">
-                    <p>According to the experts, here are your options</p>
+                    <p>Fake Name, a veterinary nutritionist, recommends finding the healthiest food that you can afford. Fresh food is easiest to digest. </p>
+                    <p>Read more about nutrition here, or select a food below when ready</p>
                 </div>
+
                 <div className="next-arrow">
+            
                     <div className="arrow-container">
                         {selectedOption > 1 &&
                         <button>
@@ -45,7 +49,7 @@ class FoodCard extends React.Component {
                                  />
                         </button>
                         }
-                        
+
                         <h6>{`Option ${selectedOption}: ${selectedFood.category}`}</h6>
                        
                        {selectedOption < totalItems && 
@@ -61,9 +65,12 @@ class FoodCard extends React.Component {
                     
 
                 </div>
+
                 <div className="checklist-card">
                     <div className="checklist-card-image">
-                        <div className="stock-image"></div>
+                        <div className="checklist-image-square">
+                            <img src={selectedFood.image} alt="product highlight" className="checklist-image"/>
+                        </div>
                     </div>
                     <div className="checklist-card-content">
                         <div className="title-wrap">
@@ -72,7 +79,7 @@ class FoodCard extends React.Component {
                         </div>
                         
                         <p>{selectedFood.description_text}</p>
-                        <div className="checklist-card-button">
+                        <div className="food-card-button">
                             <p>{selectedFood.purchase_text}</p>
                         </div>
 

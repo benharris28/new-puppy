@@ -3,7 +3,11 @@ export default {
         {
             "id": 1,
             "brand": "Farmer's Dog",
-            "category": "Fresh",
+            "product": "Fresh Food Subscription",
+            "category": "Fresh Food",
+            "image": "https://www.thefarmersdog.com/images/recipes-slideshow-1-b2b8ec.webp",
+            "rating": "4.8/5",
+            "number_of_ratings": 1000,
             "cost_large_dog": "$500 per month (estimate)",
             "cost_medium_dog": "$300 per month (estimate)",
             "cost_small_dog": "$150 per month (estimate)",
@@ -15,10 +19,16 @@ export default {
         {
             "id": 2,
             "brand": "Stella & Chewy's",
+            "product": "Cage-Free Chicken Raw Coated Kibble for Puppies",
             "category": "Premium Kibble",
-            "cost_large_dog": "$150",
-            "cost_medium_dog": "$100",
-            "cost_small_dog": "$70",
+            "image": "https://www.stellaandchewys.com/wp-content/uploads/RC-3.5LB-Chicken-Puppy.jpg",
+            "rating": "4.5/5",
+            "number_of_ratings": 1000,
+            "cost_large_dog": "$150 (estimated)",
+            "cost_medium_dog": "$100 (estimated)",
+            "cost_small_dog": "$70 (estimated)",
+            "purchase_text": "Find Stella & Chewy's",
+            "description_text": "High quality ingredients with chunks of freeze-dried raw meat. Dogs love it and its healthier than most kibble options",
             "link": "https://www.stellaandchewys.com/" 
     
         },
