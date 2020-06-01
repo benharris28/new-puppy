@@ -107,7 +107,7 @@ class Test extends React.Component {
         const { products, food } = this.context;
         const activeProducts = products.filter(product => product.active === true)
         console.log(this.state)
-        const { productCount } = this.context;
+        const { productCount, foodCount } = this.context;
         return(
             <div>
                 <div className="page-header">
@@ -162,7 +162,7 @@ class Test extends React.Component {
                                         </div>
                                     
                                         <div className="progress-tracker">
-                                            5/8
+                                            {foodCount} / 1
                                         </div>
                                         <div className="dropdown-icon">
                                             <FontAwesomeIcon 

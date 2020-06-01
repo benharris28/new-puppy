@@ -14,7 +14,8 @@ class App extends React.Component {
   state = {
     products: ProductData.products,
     food: FoodData.food,
-    productCount: ''
+    productCount: '',
+    foodCount: ''
   }
 
   handleProductCounter = (count) => {
@@ -23,12 +24,20 @@ class App extends React.Component {
     })
   }
 
+  handleFoodCounter = () => {
+    this.setState({
+      foodCount: 1
+    })
+  }
+
   render() {
     const value= {
       products: this.state.products,
       food: this.state.food,
       handleProductCounter: this.handleProductCounter,
-      productCount: this.state.productCount
+      productCount: this.state.productCount,
+      handleFoodCounter: this.handleFoodCounter,
+      foodCount: this.state.foodCount
     }
 
     console.log(this.state)

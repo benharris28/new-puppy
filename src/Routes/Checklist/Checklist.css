@@ -240,3 +240,21 @@
     padding: 10px;
     
   }
+
+  .checkmark-box-full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    min-width: 60px;
+    border-radius: 6px;
+    background-color: lightgrey;
+    align-items: center;
+    
+
+}
+
+.check-box-container {
+    width: 90%;
+    padding: 25px;
+}
