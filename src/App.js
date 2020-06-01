@@ -13,16 +13,29 @@ import './App.css';
 class App extends React.Component {
   state = {
     products: ProductData.products,
-    food: FoodData.food
+    food: FoodData.food,
+    productCount: ''
+  }
+
+  handleProductCounter = (count) => {
+    this.setState({
+      productCount: count
+    })
   }
 
   render() {
     const value= {
       products: this.state.products,
-      food: this.state.food
+      food: this.state.food,
+      handleProductCounter: this.handleProductCounter,
+      productCount: this.state.productCount
     }
 
-  return (
+    console.log(this.state)
+    
+    
+    
+    return (
     <ApiContext.Provider value={value}>
       <div className="App">
         <header className='App_header'>

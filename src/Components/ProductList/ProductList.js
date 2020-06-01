@@ -22,23 +22,26 @@ class ProductList extends React.Component {
     handleCounter = () => {
         // Count true values in state
         // Pass true values to context in App.js
-        
+
         const counter = Object.values(this.state).filter(Boolean).length
-        this.context.handleProductCount(counter)
+        this.context.handleProductCounter(counter)
     }
     
 
     handleComplete = (item) => {
         if (item === "Dog Crate") {
-            this.updateCrate()
+            this.updateCrate();
+            this.handleCounter();
         }
 
         if (item === "Dog Bowl") {
-            this.updateBowl()
+            this.updateBowl();
+            this.handleCounter();
         }
 
         if (item === "Dog Collar") {
-            this.updateCollar()
+            this.updateCollar();
+            this.handleCounter();
         }
         
     }
