@@ -184,6 +184,37 @@ class Test extends React.Component {
                                 </div>
                                 </div>
                                 }
+
+<div 
+                                    className="checklist-tab-button-test"
+                                    onClick={e => this.handleTabTwo("tabTwo")}>
+                                        <div className="tab-title">
+                                            Find the right food
+                                        </div>
+                                    
+                                        <div className="progress-tracker">
+                                            {foodCount} / 1
+                                        </div>
+                                        <div className="dropdown-icon">
+                                            <FontAwesomeIcon 
+                                                className="arrow-icon" 
+                                                icon={faChevronRight}
+                                                onClick={this.handleBackward}
+                                            />
+                                        </div>
+                                </div>
+                                
+                                {tabTwo &&
+                                <div className="tabs-content">
+                                
+                                <div className="checklist-card-container">
+                                    
+                                    
+                                  
+                                    <FirstDayCard />
+                                </div>
+                                </div>
+                                }
                                 
                             </div>
                            
