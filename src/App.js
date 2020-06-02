@@ -8,6 +8,8 @@ import Header from './Components/Header/Header';
 import ApiContext from './ApiContext';
 import ProductData from './BackupData/ProductData';
 import FoodData from './BackupData/FoodData';
+import PrepHome from './Routes/PrepHome/PrepHome';
+import PickUpPup from './Routes/PickUpPup/PickUpPup';
 import './App.css';
 
 class App extends React.Component {
@@ -68,6 +70,16 @@ class App extends React.Component {
                 exact
                 path={'/test'}
                 component={Test}
+                />
+                <Route
+                exact
+                path={'/prep-home'}
+                component={PrepHome}
+                />
+                <Route
+                exact
+                path={'/pick-up-pup'}
+                component={PickUpPup}
                 />
               
               <Route

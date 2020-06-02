@@ -4,6 +4,7 @@ import FoodCard from '../../Components/FoodCard/FoodCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import ProductList from '../../Components/ProductList/ProductList'
+import FirstDayList from '../../Components/FirstDayList/FirstDayList'
 import ApiContext from '../../ApiContext';
 import '../Checklist/Checklist.css'
 
@@ -187,9 +188,9 @@ class Test extends React.Component {
 
 <div 
                                     className="checklist-tab-button-test"
-                                    onClick={e => this.handleTabTwo("tabTwo")}>
+                                    onClick={e => this.handleTabThree("tabThree")}>
                                         <div className="tab-title">
-                                            Find the right food
+                                            Read about your first 24 hours
                                         </div>
                                     
                                         <div className="progress-tracker">
@@ -204,14 +205,14 @@ class Test extends React.Component {
                                         </div>
                                 </div>
                                 
-                                {tabTwo &&
+                                {tabThree &&
                                 <div className="tabs-content">
                                 
                                 <div className="checklist-card-container">
                                     
                                     
                                   
-                                    <FirstDayCard />
+                                    <FirstDayList />
                                 </div>
                                 </div>
                                 }

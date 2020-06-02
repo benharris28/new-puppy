@@ -35,28 +35,17 @@ class FirstDayList extends React.Component {
             
             <div className="tabs-content">
                 <div className="tabs-intro">
-                    <h5>Get the gear</h5>
-                    <p>Fake Name, founder of Fake Pet Trainers, has listed out the following items as absolutely essential when bring home a new puppy!</p>
+                    <h5>24 hour survival guide</h5>
+                    <p>Fake Name, founder of Fake Pet Trainers, gives you the most important tips on starting out right</p>
                 </div>
                                 
                 <div className="checklist-card-container">
-                    {activeProducts.map(product => 
-                                    <ChecklistCard 
-                                        key={product.category}
-                                        image={product.image} 
-                                        category={product.category}
-                                        brand={product.brand}
-                                        price={product.price}
-                                        description={product.description_text}
-                                        purchaseText={product.purchase_text}
-                                        purchaes_link={product.canada_link}
-                                        handleComplete={this.handleComplete}
-                                         />)}  
-                            
+                    
+                          <FirstDayCard />  
                                   
                                    
-                                </div>
-                                </div>
+                </div>
+            </div>
         )
         
 

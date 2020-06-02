@@ -34,6 +34,7 @@
     width: 90%;
     margin: auto;
 }
+
 .checklist-card {
     
     min-height: 200px;
@@ -71,6 +72,14 @@
     justify-content: center;
     
   }
+
+.tabs-intro {
+    text-align: left;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
 
 .checklist-tab-button {
     vertical-align: middle;
@@ -266,8 +275,36 @@
  
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
   }
   
+  .day-card-link {
+    text-align: left;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border: 1px solid #000;
+    border-radius: 10px;
+    -webkit-transition: box-shadow 500ms ease, opacity 500ms ease, -webkit-transform 600ms cubic-bezier(.23, 1, .32, 1);
+    transition: box-shadow 500ms ease, opacity 500ms ease, -webkit-transform 600ms cubic-bezier(.23, 1, .32, 1);
+    transition: box-shadow 500ms ease, transform 600ms cubic-bezier(.23, 1, .32, 1), opacity 500ms ease;
+    transition: box-shadow 500ms ease, transform 600ms cubic-bezier(.23, 1, .32, 1), opacity 500ms ease, -webkit-transform 600ms cubic-bezier(.23, 1, .32, 1);
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.05);
+    -webkit-transform: translate(0px, -5px);
+    -ms-transform: translate(0px, -5px);
+    transform: translate(0px, -5px);
+  }
   .card-image-wrap {
       height: 250px;
     }
@@ -281,23 +318,10 @@
   
   .first-day-item-description {
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     padding: 30px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
     flex: 1;
     background-color: #fff;
   }
@@ -307,9 +331,9 @@
   }
   
   .link-to-page {
-    padding-left: 13px;
+    padding-left: 30px;
     border-bottom-color: #081158;
-    background-image: url('../images/Vector-4-1.svg');
+    margin-bottom: 20px;
     background-position: 0% 50%;
     background-size: auto 10px;
     background-repeat: no-repeat;
@@ -319,7 +343,7 @@
   }
   
   .link-to-page:hover {
-    padding-left: 20px;
+    padding-left: 30px;
     border-bottom-color: rgba(32, 52, 146, 0);
     background-position: 7px 50%;
   }
