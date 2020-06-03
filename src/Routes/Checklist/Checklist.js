@@ -1,13 +1,86 @@
 import React from 'react';
 import ChecklistCard from '../../Components/ChecklistCard/ChecklistCard';
 import FoodCard from '../../Components/FoodCard/FoodCard'
-import './Checklist.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown, faChevronUp, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import ProductList from '../../Components/ProductList/ProductList'
+import FirstDayList from '../../Components/FirstDayList/FirstDayList'
+import ApiContext from '../../ApiContext';
+import '../Checklist/Checklist.css'
 
 class Checklist extends React.Component {
+    
+    static contextType = ApiContext;
+
     state = {
-        openTab: 1
+        openTab: 1,
+        tabOne: false,
+        tabTwo: false,
+        tabThree: false,
+        tabFoud: false
+
     }
     
+    handleTabOne = () => {
+        const {tabOne} = this.state;
+        if (tabOne) {
+
+            this.setState({
+                tabOne: false
+            })
+        }
+        if (!tabOne) {
+            this.setState({
+                tabOne: true
+            })
+        }
+    }
+
+    handleTabTwo = () => {
+        const {tabTwo} = this.state;
+        if (tabTwo) {
+
+            this.setState({
+                tabTwo: false
+            })
+        }
+        if (!tabTwo) {
+            this.setState({
+                tabTwo: true
+            })
+        }
+    }
+
+    handleTabThree = () => {
+        const {tabThree} = this.state;
+        if (tabThree) {
+
+            this.setState({
+                tabThree: false
+            })
+        }
+        if (!tabThree) {
+            this.setState({
+                tabThree: true
+            })
+        }
+    }
+
+    handleTabFour = () => {
+        const {tabFour} = this.state;
+        if (tabFour) {
+
+            this.setState({
+                tabFour: false
+            })
+        }
+        if (!tabFour) {
+            this.setState({
+                tabFour: true
+            })
+        }
+    }
+
     handleTabClick = (e) => {
         this.setState({
             openTab: e
@@ -30,8 +103,12 @@ class Checklist extends React.Component {
     }
     
     render() {
+        const { openTab, tabOne, tabTwo, tabThree, tabFour } = this.state;
         const tabDisplay = this.renderTab();
+        const { products, food } = this.context;
+        const activeProducts = products.filter(product => product.active === true)
         console.log(this.state)
+        const { productCount, foodCount } = this.context;
         return(
             <div>
                 <div className="page-header">
@@ -46,47 +123,106 @@ class Checklist extends React.Component {
                     <div className="container">
                         <div className="tabs">
                             <div className="tab-menu-title">
-                                <h6>Get the gear (1/4)</h6>
+                                <h6>Checklist Items</h6>
                             </div>
-                            <div className="tabs-menu">
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="1"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    1
-                                </button>
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="2"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    2
-                                </button>
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="3"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    3
-                                </button>
-                                <button 
-                                    className="checklist-tab-button"
-                                    value="4"
-                                    onClick={e => this.handleTabClick(e.target.value)}>
-                                    4
-                                </button>
-                            </div>
-                            <div className="tabs-content">
+                            
+                            <div className="tabs-menu-test">
+                                <div 
+                                    className="checklist-tab-button-test"
+                                    onClick={e => this.handleTabOne("tabOne")}>
+                                        <div className="tab-title">
+                                            Get the gear
+                                        </div>
+                                    
+                                        <div className="progress-tracker">
+                                            {productCount}/8
+                                        </div>
+                                        <div className="dropdown-icon">
+                                            <FontAwesomeIcon 
+                                            className="arrow-icon" 
+                                            icon={faChevronRight}
+                                            onClick={this.handleBackward}
+                                            />
+                                        </div>
+                                </div>
+                                
+                                {tabOne && <ProductList />}  
+                            
+                                  
+                                   
+                                </div>
+                                </div>
+                                
+
+
+                                 <div 
+                                    className="checklist-tab-button-test"
+                                    onClick={e => this.handleTabTwo("tabTwo")}>
+                                        <div className="tab-title">
+                                            Find the right food
+                                        </div>
+                                    
+                                        <div className="progress-tracker">
+                                            {foodCount} / 1
+                                        </div>
+                                        <div className="dropdown-icon">
+                                            <FontAwesomeIcon 
+                                                className="arrow-icon" 
+                                                icon={faChevronRight}
+                                                onClick={this.handleBackward}
+                                            />
+                                        </div>
+                                </div>
+                                
+                                {tabTwo &&
+                                <div className="tabs-content">
                                 
                                 <div className="checklist-card-container">
                                     
                                     
                                   
-                                    {tabDisplay}
+                                    <FoodCard />
                                 </div>
+                                </div>
+                                }
+
+<div 
+                                    className="checklist-tab-button-test"
+                                    onClick={e => this.handleTabThree("tabThree")}>
+                                        <div className="tab-title">
+                                            Read about your first 24 hours
+                                        </div>
+                                    
+                                        <div className="progress-tracker">
+                                            {foodCount} / 1
+                                        </div>
+                                        <div className="dropdown-icon">
+                                            <FontAwesomeIcon 
+                                                className="arrow-icon" 
+                                                icon={faChevronRight}
+                                                onClick={this.handleBackward}
+                                            />
+                                        </div>
+                                </div>
+                                
+                                {tabThree &&
+                                <div className="tabs-content">
+                                
+                                <div className="checklist-card-container">
+                                    
+                                    
+                                  
+                                    <FirstDayList />
+                                </div>
+                                </div>
+                                }
+                                
                             </div>
+                           
                         </div>
                     </div>
-                </div>
-            </div>
+                
+            
         )
     }
 }

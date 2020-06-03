@@ -19,10 +19,9 @@ class Header extends React.Component {
                         <nav 
                             role="navigation" 
                             className="nav-menu w-nav-menu">
-                                <Link to="/" aria-current="page" className="nav-link w-nav-link w--current">Home</Link>
-                                <Link to="/order" className="nav-link w-nav-link">Order</Link>
-                                <Link to="/company" className="nav-link w-nav-link">Company</Link>
-                                <Link to="/faq" className="nav-link w-nav-link">FAQ</Link>
+                                <Link to="/" aria-current="page" className="nav-link">Home</Link>
+                                <Link to="/checklist" className="nav-link">Checklist</Link>
+                               
                             
                         </nav>
                     </div>

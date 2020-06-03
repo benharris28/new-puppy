@@ -1,5 +1,6 @@
 import React from 'react';
 import FirstDayCard from '../../Components/FirstDayCard/FirstDayCard';
+import { Link } from 'react-router-dom';
 import ApiContext from '../../ApiContext';
 
 class FirstDayList extends React.Component {
@@ -7,7 +8,11 @@ class FirstDayList extends React.Component {
     static contextType = ApiContext;
 
     state = {
-      
+      prep_home: false,
+      pick_up_pup: false,
+      tricks: false,
+      first_meal: false,
+      house_train: false
     }
 
     // Add patch to database
@@ -28,7 +33,32 @@ class FirstDayList extends React.Component {
 
     
     render() {
-        
+        const pages = [
+            {
+                slug: '/prep-home',
+                page_title: "Prepare your home",
+                next_page: '/pick-up-pup'
+            },
+            {
+                slug: '/pick-up-pup',
+                page_title: "Pick up your puppy",
+                next_page: '/tricks'
+            },
+            {
+                slug: '/tricks',
+                page_title: "Teach a few tricks",
+                next_page: '/feeding'
+            },
+            {
+                slug: '/feeding',
+                page_title: "Puppy's first meal",
+                next_page: '/house-training'
+            },
+            {
+                slug: '/house-training',
+                page_title: "House training"
+            },
+        ]
         
         
         return (
@@ -41,7 +71,14 @@ class FirstDayList extends React.Component {
                                 
                 <div className="checklist-card-container">
                     
-                          <FirstDayCard />  
+                         {pages.map(page => <Link to={page.slug}>
+                                                    <FirstDayCard 
+                                                        key={page.slug} 
+                                                        slug={page.slug}
+                                                        title={page.page_title} 
+                                                        />
+                                            </Link> )
+                                            } 
                                   
                                    
                 </div>
