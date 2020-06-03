@@ -56,7 +56,8 @@ class FirstDayList extends React.Component {
             },
             {
                 slug: '/house-training',
-                page_title: "House training"
+                page_title: "House training",
+                next_page: null
             },
         ]
         
@@ -75,7 +76,8 @@ class FirstDayList extends React.Component {
                                                     <FirstDayCard 
                                                         key={page.slug} 
                                                         slug={page.slug}
-                                                        title={page.page_title} 
+                                                        title={page.page_title}
+                                                        next={page.next_page} 
                                                         />
                                             </Link> )
                                             } 

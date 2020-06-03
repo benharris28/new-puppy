@@ -347,3 +347,28 @@
     border-bottom-color: rgba(32, 52, 146, 0);
     background-position: 7px 50%;
   }
+
+  /* 24 hour guide page styling */
+
+  .next-checkpoint-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    min-width: 60px;
+    border-radius: 6px;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .guide-button {
+    display: flex;
+    min-height: 45px;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #35b8be;
+    color: white;
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+  }
