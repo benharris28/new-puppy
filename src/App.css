@@ -120,21 +120,11 @@ li {
 
 .header {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   padding: 100px 3% 140px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-
   background-position: 100% 0%;
   background-size: auto;
   background-repeat: no-repeat;
@@ -150,6 +140,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin: auto;
   
 }
 
@@ -196,6 +187,7 @@ li {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  
 }
 
 .hero-image-wrap {
@@ -238,4 +230,8 @@ li {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+button {
+  
 }

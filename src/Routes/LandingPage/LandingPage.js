@@ -13,7 +13,7 @@ class LandingPage extends React.Component {
                             Test
                         </p>
                         <div className="button-wrapper">
-                            <button>
+                            <button className="button">
                                 Start now
                             </button>
                         </div>

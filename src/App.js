@@ -4,6 +4,7 @@ import Checklist from './Routes/Checklist/Checklist';
 import LandingPage from './Routes/LandingPage/LandingPage';
 import NotFoundPage from './Routes/NotFoundPage/NotFoundPage';
 import Test from './Routes/Test/Test';
+import RegistrationPage from './Routes/RegistrationPage/RegistrationPage';
 import Header from './Components/Header/Header';
 import ApiContext from './ApiContext';
 import ProductData from './BackupData/ProductData';
@@ -87,6 +88,11 @@ class App extends React.Component {
                 exact
                 path={'/test'}
                 component={Test}
+                />
+                <Route
+                exact
+                path={'/register'}
+                component={RegistrationPage}
                 />
                 <Route
                 exact
