@@ -17,7 +17,14 @@ class App extends React.Component {
     products: ProductData.products,
     food: FoodData.food,
     productCount: '',
-    foodCount: ''
+    foodCount: '',
+    prep_home: false,
+    pick_up_pup: false,
+    tricks: false,
+    first_meal: false,
+    house_train: false,
+    guideCount: ''
+
   }
 
   handleProductCounter = (count) => {
@@ -32,6 +39,14 @@ class App extends React.Component {
     })
   }
 
+  handleProgress = (page) => {
+    const { prep_home, pick_up_pup, tricks, first_meal, house_train } = this.state;
+    
+    this.setState({
+      [page]: true
+    })
+  }
+
   render() {
     const value= {
       products: this.state.products,
@@ -39,7 +54,9 @@ class App extends React.Component {
       handleProductCounter: this.handleProductCounter,
       productCount: this.state.productCount,
       handleFoodCounter: this.handleFoodCounter,
-      foodCount: this.state.foodCount
+      foodCount: this.state.foodCount,
+      handleProgress: this.handleProgress,
+      prep_home: this.state.prep_home
     }
 
     console.log(this.state)

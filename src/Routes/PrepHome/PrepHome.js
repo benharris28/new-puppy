@@ -1,9 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquare} from '@fortawesome/free-regular-svg-icons'
+import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
+import ApiContext from '../../ApiContext';
 
 class PrepHome extends React.Component {
+    
+    static contextType = ApiContext;
+    
+    componentDidMount() {
+        // Update progress status from context
+    }
+
+    handleComplete = (page) => {
+        this.context.handleProgress(page)
+    }
+    
     render() {
         return (
             <div>
@@ -20,11 +32,16 @@ class PrepHome extends React.Component {
                     <div className="help-text">
                         Mark done
                     </div>
-                    <div
-                        onClick={() => this.props.handleComplete("category")}>
+                    <div 
+                        onClick={() => this.handleComplete("prep_home")}>
                         <FontAwesomeIcon 
                             className="square-icon-non-hover" 
                             icon={faSquare}
+                                                
+                        />
+                        <FontAwesomeIcon 
+                            className="square-icon-checked" 
+                            icon={faCheckSquare}
                                                 
                         />
                     </div>
