@@ -20,7 +20,9 @@ class Header extends React.Component {
                             role="navigation" 
                             className="nav-menu w-nav-menu">
                                 <Link to="/" aria-current="page" className="nav-link">Home</Link>
-                                <Link to="/checklist" className="nav-link">Checklist</Link>
+                                <Link to="/register" aria-current="page" className="nav-link">Register</Link>
+                                <Link to="/login" aria-current="page" className="nav-link">Login</Link>
+                            
                                
                             
                         </nav>

@@ -111,6 +111,65 @@ li {
 
 /* Landing Page Styling */
 
+@media screen and (max-width: 991px) {
+
+  .header {
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+  .hero-content {
+    width: 100%;
+    max-width: 730px;
+    margin-bottom: 40px;
+    padding-left: 40px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .container-flex {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .hero-image-wrap {
+    width: 100%;
+    margin-top: 60px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .button-wrapper {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding-bottom: 60px;
+  }
+  .hero-content {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .button-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+}
+
+
 .hero-paragraph {
   color: #546285;
   font-size: 18px;
@@ -131,12 +190,8 @@ li {
 }
 
 .hero-content {
- 
   display: flex;
   width: 90%;
-  
- 
-  -ms-flex-direction: column;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -168,9 +223,6 @@ li {
 }
 
 .container-flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   max-width: 1200px;
@@ -232,6 +284,6 @@ li {
   align-items: center;
 }
 
-button {
-  
-}
+
+
+

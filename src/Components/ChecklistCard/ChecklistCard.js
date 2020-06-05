@@ -2,10 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faSquare} from '@fortawesome/free-regular-svg-icons'
-import dogCrate from '../../Photos/dogCrate.jpg'
+
 
 class ChecklistCard extends React.Component {
     
+    renderIcon = () => {
+        
+    }
     render() {
         const { image, category, brand, price, description, purchaseText, purchaes_link } = this.props;
         

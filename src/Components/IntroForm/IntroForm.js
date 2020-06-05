@@ -1,12 +1,8 @@
 import React from 'react';
 
-class RegistrationForm extends React.Component {
+class IntroForm extends React.Component {
     state = {
         error: null,
-        email: '',
-        password: '',
-        password_touched: '',
-        repeat_password: '',
         dog_name: '',
         bring_home_date: '',
         dog_age: '',
@@ -16,9 +12,6 @@ class RegistrationForm extends React.Component {
     handleSubmit = () => {
         // Post credentials
         // Render more info component
-
-        // For static app, forward to login page
-        this.props.onRegistrationSuccess()
     }
     
     render() {
@@ -86,4 +79,4 @@ class RegistrationForm extends React.Component {
     }
 }
 
-export default RegistrationForm;
+export default IntroForm;
