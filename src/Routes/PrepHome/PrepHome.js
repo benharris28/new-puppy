@@ -8,15 +8,47 @@ class PrepHome extends React.Component {
     
     static contextType = ApiContext;
     
+    state = {
+        complete: ''
+    }
+
     componentDidMount() {
         // Update progress status from context
     }
 
     handleComplete = (page) => {
+        this.setState({
+            complete: true
+        })
         this.context.handleProgress(page)
     }
     
+    renderIcon = () => {
+        const { complete } = this.state;
+        if (complete === true) {
+            return  (
+                <FontAwesomeIcon 
+                className="square-icon-checked" 
+                icon={faCheckSquare}
+                                    
+                /> 
+            )
+        } else {
+            return (
+                <FontAwesomeIcon 
+                            className="square-icon-non-hover" 
+                            icon={faSquare}
+                                                
+                        />
+            )
+        }
+    }
+    
     render() {
+        const { path } = this.props.match
+        const pageName = path.substr(1)
+        console.log(pageName)
+        console.log(this.state)
         return (
             <div>
                 <div className="checklist-card-container">
@@ -33,21 +65,13 @@ class PrepHome extends React.Component {
                         Mark done
                     </div>
                     <div 
-                        onClick={() => this.handleComplete("prep_home")}>
-                        <FontAwesomeIcon 
-                            className="square-icon-non-hover" 
-                            icon={faSquare}
-                                                
-                        />
-                        <FontAwesomeIcon 
-                            className="square-icon-checked" 
-                            icon={faCheckSquare}
-                                                
-                        />
+                        onClick={() => this.handleComplete(pageName)}>
+                        {this.renderIcon()}
+                        
                     </div>
                 </div>
                     
-                    <Link to="/pick-up-pup">
+                    <Link to="/pickup">
                         <button className="guide-button">
                             Up next: Pick up pup
                         </button>

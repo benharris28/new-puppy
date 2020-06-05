@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
 import ApiContext from '../../ApiContext';
 
-class PickUpPup extends React.Component {
+class HouseTraining extends React.Component {
     
     static contextType = ApiContext;
     
@@ -71,9 +71,9 @@ class PickUpPup extends React.Component {
                     </div>
                 </div>
                     
-                    <Link to="/tricks">
+                    <Link to="/checklist">
                         <button className="guide-button">
-                            Up next: Tricks
+                            Back to checklist
                         </button>
                     </Link>
                 </div>
@@ -83,4 +83,4 @@ class PickUpPup extends React.Component {
     }
 }
 
-export default PickUpPup;
+export default HouseTraining;

@@ -35,12 +35,12 @@ class FirstDayList extends React.Component {
     render() {
         const pages = [
             {
-                slug: '/prep-home',
+                slug: '/preparehome',
                 page_title: "Prepare your home",
                 next_page: '/pick-up-pup'
             },
             {
-                slug: '/pick-up-pup',
+                slug: '/pickup',
                 page_title: "Pick up your puppy",
                 next_page: '/tricks'
             },
@@ -55,7 +55,7 @@ class FirstDayList extends React.Component {
                 next_page: '/house-training'
             },
             {
-                slug: '/house-training',
+                slug: '/housetrain',
                 page_title: "House training",
                 next_page: null
             },

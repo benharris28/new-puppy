@@ -12,6 +12,9 @@ import ProductData from './BackupData/ProductData';
 import FoodData from './BackupData/FoodData';
 import PrepHome from './Routes/PrepHome/PrepHome';
 import PickUpPup from './Routes/PickUpPup/PickUpPup';
+import Tricks from './Routes/Tricks/Tricks';
+import Feeding from './Routes/Feeding/Feeding';
+import HouseTraining from './Routes/HouseTraining/HouseTraining';
 import './App.css';
 
 class App extends React.Component {
@@ -20,11 +23,11 @@ class App extends React.Component {
     food: FoodData.food,
     productCount: '',
     foodCount: '',
-    prep_home: false,
-    pick_up_pup: false,
+    preparehome: false,
+    pickup: false,
     tricks: false,
-    first_meal: false,
-    house_train: false,
+    feeding: false,
+    housetrain: false,
     guideCount: ''
 
   }
@@ -102,13 +105,28 @@ class App extends React.Component {
                 />
                 <Route
                 exact
-                path={'/prep-home'}
+                path={'/preparehome'}
                 component={PrepHome}
                 />
                 <Route
                 exact
-                path={'/pick-up-pup'}
+                path={'/pickup'}
                 component={PickUpPup}
+                />
+                <Route
+                exact
+                path={'/tricks'}
+                component={Tricks}
+                />
+                <Route
+                exact
+                path={'/feeding'}
+                component={Feeding}
+                />
+                <Route
+                exact
+                path={'/housetrain'}
+                component={HouseTraining}
                 />
               
               <Route

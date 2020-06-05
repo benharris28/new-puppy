@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class LandingPage extends React.Component {
     render() {
@@ -13,9 +14,14 @@ class LandingPage extends React.Component {
                             Test
                         </p>
                         <div className="button-wrapper">
-                            <button className="button">
-                                Start now
-                            </button>
+                            <Link to='/register'>
+
+                            
+                                <button 
+                                        className="button">
+                                    Start now
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="hero-image-wrap">
