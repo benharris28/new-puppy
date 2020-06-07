@@ -1,9 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ApiContext from '../../ApiContext';
+
 import './Header.css'
 
 class Header extends React.Component {
     
+    static contextType = ApiContext;
+    
+    handleLogoutClick = () => {
+       
+        this.context.handleLogout()
+      }
+
     renderLogoutLink() {
         const { loggedInUser } = this.context;
        
@@ -20,7 +29,7 @@ class Header extends React.Component {
         </div>
         <div className="header-user-account">
           <Link
-            to={`/checklist}`}
+            to={`/checklist`}
             className="textlink">
               My Checklist
           </Link>
@@ -42,6 +51,7 @@ class Header extends React.Component {
   
     
     render() {
+        const {loggedInUser } = this.context;
         return (
             <div className="navbar">
                 <div className="navigation-container">
@@ -57,9 +67,9 @@ class Header extends React.Component {
                         <nav 
                             role="navigation" 
                             className="nav-menu w-nav-menu">
-                                <Link to="/" aria-current="page" className="nav-link">Home</Link>
-                                <Link to="/register" aria-current="page" className="nav-link">Register</Link>
-                                <Link to="/login" aria-current="page" className="nav-link">Login</Link>
+                                {loggedInUser
+                                    ? this.renderLogoutLink()
+                                    : this.renderLoginLink()}
                             
                                
                             

@@ -1,5 +1,8 @@
 import React from 'react';
 import ChecklistCard from '../../Components/ChecklistCard/ChecklistCard';
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
 import ApiContext from '../../ApiContext';
 
 class ProductList extends React.Component {
@@ -7,14 +10,7 @@ class ProductList extends React.Component {
     static contextType = ApiContext;
 
     state = {
-        dog_crate: true,
-        dog_bowl: true,
-        collar: true,
-        leash: true,
-        harness: true,
-        poo_bags: true,
-        tag: false,
-        treats: false,
+        complete: 'false'
     }
 
     // Add patch to database
@@ -23,73 +19,36 @@ class ProductList extends React.Component {
         // Count true values in state
         // Pass true values to context in App.js
 
-        const counter = Object.values(this.state).filter(Boolean).length
-        this.context.handleProductCounter(counter)
+        
     }
     
 
-    handleComplete = (item) => {
-        if (item === "Dog Crate") {
-            this.updateCrate();
-            this.handleCounter();
-        }
-
-        if (item === "Dog Bowl") {
-            this.updateBowl();
-            this.handleCounter();
-        }
-
-        if (item === "Dog Collar") {
-            this.updateCollar();
-            this.handleCounter();
-        }
-        
-    }
-    updateCrate = () => {
-        const { dog_crate } = this.state
-        if (dog_crate === true) {
-            this.setState({
-                dog_crate: false
-            })
-
-        } else {
-            if (dog_crate === false) {
-                this.setState({
-                    dog_crate: true
-                })
-            }
-        }
+    handleComplete = (page) => {
+        this.setState({
+            complete: true
+        })
+        this.context.handleProgress(page)
+        this.context.handleProductCounter(1)
     }
 
-    updateBowl = () => {
-        const { dog_bowl } = this.state
-        if (dog_bowl === true) {
-            this.setState({
-                dog_bowl: false
-            })
-
+    renderIcon = () => {
+        const { complete } = this.state;
+        if (complete === true) {
+            return  (
+                <FontAwesomeIcon 
+                className="square-icon-checked" 
+                icon={faCheckSquare}
+                                    
+                /> 
+            )
         } else {
-            if (dog_bowl === false) {
-                this.setState({
-                    dog_bowl: true
-                })
-            }
-        }
-    }
-
-    updateCollar = () => {
-        const { collar } = this.state
-        if (collar === true) {
-            this.setState({
-                collar: false
-            })
-
-        } else {
-            if (collar === false) {
-                this.setState({
-                    collar: true
-                })
-            }
+            return (
+                <FontAwesomeIcon 
+                            className="square-icon-non-hover" 
+                            icon={faSquare}
+                                                
+                        />
+            )
         }
     }
     
@@ -99,6 +58,7 @@ class ProductList extends React.Component {
         console.log(counter)
         const { products } = this.context;
         const activeProducts = products.filter(product => product.active === true)
+        const pageName = 'productPage'
         
         return (
             
@@ -124,8 +84,26 @@ class ProductList extends React.Component {
                             
                                   
                                    
-                                </div>
-                                </div>
+                </div>
+                <div className="next-checkpoint-box">
+                    <div className="checkmark-box">
+                        <div className="help-text">
+                            Mark done
+                        </div>
+                        <div 
+                            onClick={() => this.handleComplete(pageName)}>
+                            {this.renderIcon()}
+                            
+                        </div>
+                    </div>
+                        
+                        <Link to="/checklist">
+                            <button className="guide-button">
+                                Back to checklist
+                            </button>
+                        </Link>
+                </div>
+            </div>
         )
         
 

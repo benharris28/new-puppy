@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleRight, faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons'
-import { faSquare} from '@fortawesome/free-regular-svg-icons'
+import { Link } from 'react-router-dom'
+import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
 import FoodData from '../../BackupData/FoodData';
 import ApiContext from '../../ApiContext';
 import './FoodCard.css';
@@ -13,15 +14,15 @@ class FoodCard extends React.Component {
 
     state = {
         selectedOption: 2,
-        foodComplete: false
+        complete: ''
     }
 
-    handleComplete = () => {
+    handleComplete = (page) => {
         this.setState({
-            foodComplete: true
+            complete: true
         })
+        this.context.handleProgress(page)
         this.context.handleFoodCounter()
-
     }
 
     handleCounter = () => {
@@ -43,6 +44,27 @@ class FoodCard extends React.Component {
             selectedOption: this.state.selectedOption - 1
         })
     }
+
+    renderIcon = () => {
+        const { complete } = this.state;
+        if (complete === true) {
+            return  (
+                <FontAwesomeIcon 
+                className="square-icon-checked" 
+                icon={faCheckSquare}
+                                    
+                /> 
+            )
+        } else {
+            return (
+                <FontAwesomeIcon 
+                            className="square-icon-non-hover" 
+                            icon={faSquare}
+                                                
+                        />
+            )
+        }
+    }
     
     render() {
         const { selectedOption } = this.state;
@@ -51,6 +73,7 @@ class FoodCard extends React.Component {
         const selectedFood = FoodData.food.find(selected => selectedOption == selected.id)
         console.log(selectedFood)
         console.log(this.state)
+        const pageName = 'foodPage'
         
         
         return(
@@ -110,23 +133,23 @@ class FoodCard extends React.Component {
 
 
                 </div>
-                <div className="check-box-container">
-                    <p>When you have selected a food, please mark this step as done</p>
-                    <div className="checkmark-box-full">
+                <div className="next-checkpoint-box">
+                    <div className="checkmark-box">
                         <div className="help-text">
                             Mark done
                         </div>
-                        <div
-                            onClick={this.handleComplete}>
-                                <FontAwesomeIcon 
-                                    className="square-icon-non-hover" 
-                                    icon={faSquare}
-                                                
-                                    />
+                        <div 
+                            onClick={() => this.handleComplete(pageName)}>
+                            {this.renderIcon()}
+                            
                         </div>
-                                            
-                                            
                     </div>
+                        
+                        <Link to="/checklist">
+                            <button className="guide-button">
+                                Back to checklist
+                            </button>
+                        </Link>
                 </div>
 
                 

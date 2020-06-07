@@ -24,16 +24,29 @@ class App extends React.Component {
     products: ProductData.products,
     food: FoodData.food,
     productCount: '',
+    productPage: '',
+    foodPage: '',
     foodCount: '',
     preparehome: false,
     pickup: false,
     tricks: false,
     feeding: false,
     housetrain: false,
+    firstDayCount: '',
     guideCount: '',
     loggedInUser: '',
     users: users
 
+  }
+
+
+  handleFirstDayCounter = () => {
+    const firstday = [this.state.preparehome, this.state.pickup, this.state.tricks, this.state.feeding, this.state.housetrain]
+    const firstDayCounter = Object.values(firstday).filter(Boolean).length + 1
+    console.log(firstDayCounter)
+    this.setState({
+      firstDayCount: firstDayCounter
+    })
   }
 
   handleProductCounter = (count) => {
@@ -49,16 +62,22 @@ class App extends React.Component {
   }
 
   handleProgress = (page) => {
-    const { prep_home, pick_up_pup, tricks, first_meal, house_train } = this.state;
+    const { prep_home, pick_up_pup, tricks, first_meal, house_train, productPage, foodPage } = this.state;
     
     this.setState({
       [page]: true
     })
   }
 
-  handleLoggedInUser = (user) => {
+  handleLoggedInUser = () => {
     this.setState({
-      loggedInUser: user
+      loggedInUser: true
+    })
+  }
+
+  handleLogout = () => {
+    this.setState({
+      loggedInUser: false
     })
   }
 
@@ -70,9 +89,13 @@ class App extends React.Component {
       productCount: this.state.productCount,
       handleFoodCounter: this.handleFoodCounter,
       foodCount: this.state.foodCount,
+      firstDayCount: this.state.firstDayCount,
       handleProgress: this.handleProgress,
+      handleFirstDayCounter: this.handleFirstDayCounter,
       prep_home: this.state.prep_home,
+      handleLoggedInUser: this.handleLoggedInUser,
       loggedInUser: this.state.loggedInUser,
+      handleLogout: this.handleLogout,
       users: this.state.users
     }
 

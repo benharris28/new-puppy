@@ -1,14 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faSquare} from '@fortawesome/free-regular-svg-icons'
+import { faSquare, faCheckSquare } from '@fortawesome/free-regular-svg-icons'
 
 
 class ChecklistCard extends React.Component {
     
-    renderIcon = () => {
-        
-    }
+    
+    
+
     render() {
         const { image, category, brand, price, description, purchaseText, purchaes_link } = this.props;
         
@@ -35,21 +35,7 @@ class ChecklistCard extends React.Component {
                                 <p>{purchaseText}</p>
                             </div>
                             
-                                <div className="checkmark-box">
-                                        <div className="help-text">
-                                            Mark done
-                                        </div>
-                                        <div
-                                            onClick={() => this.props.handleComplete(category)}>
-                                            <FontAwesomeIcon 
-                                                className="square-icon-non-hover" 
-                                                icon={faSquare}
-                                            
-                                        />
-                                        </div>
-                                        
-                                        
-                                </div>
+                                
                             
                         </div>
                         

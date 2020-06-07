@@ -103,10 +103,7 @@ class Checklist extends React.Component {
     }
     
     render() {
-        const { openTab, tabOne, tabTwo, tabThree, tabFour } = this.state;
-        const tabDisplay = this.renderTab();
-        const { products, food } = this.context;
-        const activeProducts = products.filter(product => product.active === true)
+        const { tabOne, tabTwo, tabThree, tabFour } = this.state;
         console.log(this.state)
         const { productCount, foodCount } = this.context;
         return(
@@ -135,7 +132,7 @@ class Checklist extends React.Component {
                                         </div>
                                     
                                         <div className="progress-tracker">
-                                            {productCount}/8
+                                            {this.context.productCount}/1
                                         </div>
                                         <div className="dropdown-icon">
                                             <FontAwesomeIcon 
@@ -194,7 +191,7 @@ class Checklist extends React.Component {
                                         </div>
                                     
                                         <div className="progress-tracker">
-                                            {foodCount} / 1
+                                            {this.context.firstDayCount} / 5
                                         </div>
                                         <div className="dropdown-icon">
                                             <FontAwesomeIcon 

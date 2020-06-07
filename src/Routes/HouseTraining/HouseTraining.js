@@ -21,6 +21,7 @@ class HouseTraining extends React.Component {
             complete: true
         })
         this.context.handleProgress(page)
+        this.context.handleFirstDayCounter()
     }
     
     renderIcon = () => {
@@ -54,7 +55,7 @@ class HouseTraining extends React.Component {
                 <div className="checklist-card-container">
 
                 
-                <h1>Prepare your home</h1>
+                <h1>Housetraining</h1>
                 <div className="tabs-intro">
                     <h6>Main content section</h6>
                     <p>Test content to be filled in later!</p>

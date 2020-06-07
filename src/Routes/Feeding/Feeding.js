@@ -21,6 +21,7 @@ class Feeding extends React.Component {
             complete: true
         })
         this.context.handleProgress(page)
+        this.context.handleFirstDayCounter()
     }
     
     renderIcon = () => {

@@ -21,9 +21,9 @@ class LoginForm extends React.Component {
     handleApiSubmit = (e) => {
         const { users } = this.context;
         const { email } = this.state;
-        const user = this.getLoggedInUser(users, email)
+        
 
-        this.context.handleLoggedInUser(user)
+        this.context.handleLoggedInUser()
         this.props.onLoginSuccess()
         
     }

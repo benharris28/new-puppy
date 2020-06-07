@@ -20,9 +20,8 @@ class FirstDayList extends React.Component {
     handleCounter = () => {
         // Count true values in state
         // Pass true values to context in App.js
-
-        const counter = Object.values(this.state).filter(Boolean).length
-        this.context.handleProductCounter(counter)
+        
+        this.context.handleFirstDayCounter()
     }
     
 
@@ -33,6 +32,7 @@ class FirstDayList extends React.Component {
 
     
     render() {
+        console.log(this.state)
         const pages = [
             {
                 slug: '/preparehome',
