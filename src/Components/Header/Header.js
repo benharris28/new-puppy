@@ -3,6 +3,44 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 
 class Header extends React.Component {
+    
+    renderLogoutLink() {
+        const { loggedInUser } = this.context;
+       
+      return (
+      <>
+        <div>
+          <Link
+            onClick={this.handleLogoutClick}
+            to='/'
+            className="textlink">
+            Logout
+          </Link>
+          <Link to="/" aria-current="page" className="nav-link">Home</Link>
+        </div>
+        <div className="header-user-account">
+          <Link
+            to={`/checklist}`}
+            className="textlink">
+              My Checklist
+          </Link>
+        </div>
+      </>
+      )
+    }
+  
+    renderLoginLink() {
+      return (
+        <div>
+            <Link to="/" aria-current="page" className="nav-link">Home</Link>
+            <Link to="/register" aria-current="page" className="nav-link">Register</Link>
+            <Link to="/login" aria-current="page" className="nav-link">Login</Link>
+          
+        </div>
+      )
+    }
+  
+    
     render() {
         return (
             <div className="navbar">

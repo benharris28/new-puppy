@@ -14,7 +14,9 @@ import PrepHome from './Routes/PrepHome/PrepHome';
 import PickUpPup from './Routes/PickUpPup/PickUpPup';
 import Tricks from './Routes/Tricks/Tricks';
 import Feeding from './Routes/Feeding/Feeding';
+import NavbarTest from './Components/Navbar/Navbar'
 import HouseTraining from './Routes/HouseTraining/HouseTraining';
+import users from './BackupData/Users'
 import './App.css';
 
 class App extends React.Component {
@@ -28,7 +30,9 @@ class App extends React.Component {
     tricks: false,
     feeding: false,
     housetrain: false,
-    guideCount: ''
+    guideCount: '',
+    loggedInUser: '',
+    users: users
 
   }
 
@@ -52,6 +56,12 @@ class App extends React.Component {
     })
   }
 
+  handleLoggedInUser = (user) => {
+    this.setState({
+      loggedInUser: user
+    })
+  }
+
   render() {
     const value= {
       products: this.state.products,
@@ -61,7 +71,9 @@ class App extends React.Component {
       handleFoodCounter: this.handleFoodCounter,
       foodCount: this.state.foodCount,
       handleProgress: this.handleProgress,
-      prep_home: this.state.prep_home
+      prep_home: this.state.prep_home,
+      loggedInUser: this.state.loggedInUser,
+      users: this.state.users
     }
 
     console.log(this.state)
@@ -74,6 +86,7 @@ class App extends React.Component {
         <header className='App_header'>
             <Header 
               locale={this.props.match}/>
+            
           </header>
         
 

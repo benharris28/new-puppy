@@ -20,6 +20,27 @@ class RegistrationForm extends React.Component {
         // For static app, forward to login page
         this.props.onRegistrationSuccess()
     }
+
+    updateEmail = (email) => {
+   
+        this.setState({
+          email: email
+        })
+      }
+  
+      updatePassword = (password) => {
+     
+        this.setState({
+          password: password
+        })
+      }
+  
+      updateRepeatPassword = (repeatPassword) => {
+     
+        this.setState({
+          repeat_password: repeatPassword
+        })
+      }
     
     render() {
         const { error, repeat_password, password } = this.state;
