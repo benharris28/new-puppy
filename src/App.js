@@ -16,6 +16,7 @@ import Tricks from './Routes/Tricks/Tricks';
 import Feeding from './Routes/Feeding/Feeding';
 import NavbarTest from './Components/Navbar/Navbar'
 import HouseTraining from './Routes/HouseTraining/HouseTraining';
+import IntroPage from './Routes/IntroPage/IntroPage';
 import users from './BackupData/Users'
 import './App.css';
 
@@ -163,6 +164,11 @@ class App extends React.Component {
                 exact
                 path={'/housetrain'}
                 component={HouseTraining}
+                />
+                <Route
+                exact
+                path={'/intro'}
+                component={IntroPage}
                 />
               
               <Route

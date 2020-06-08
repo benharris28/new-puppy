@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import ProductList from '../../Components/ProductList/ProductList'
 import FirstDayList from '../../Components/FirstDayList/FirstDayList'
+import IntroForm from '../../Components/IntroForm/IntroForm'
 import ApiContext from '../../ApiContext';
 import '../Checklist/Checklist.css'
 

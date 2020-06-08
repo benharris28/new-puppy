@@ -5,23 +5,46 @@ class IntroForm extends React.Component {
         error: null,
         dog_name: '',
         bring_home_date: '',
-        dog_age: '',
-        dog_breed: ''
+        dog_birthday: '',
+        dog_breed: '',
+        questionNum: 1
     }
 
     handleSubmit = () => {
-        // Post credentials
-        // Render more info component
+        this.context.updateDog()
+    }
+
+    updateDogName = (name) => {
+        this.setState({
+            dog_name: name
+        })
+    }
+
+    handleDate(date) {
+        this.setState({
+            date
+        })
+    }
+
+    updateBreed(date) {
+        this.setState({
+            date
+        })
     }
     
+    nextQuestion = () => {
+        this.setState({
+            questionNum: this.state.questionNum + 1
+        })
+    }
     render() {
-        const { error, repeat_password, password } = this.state;
+        const { error } = this.state;
         
         return (
            
                 <>
                     <form 
-                        id="registration-form"
+                        id="intro-form"
                         onSubmit={e => this.handleSubmit(e)}>
                             
                             
@@ -33,45 +56,68 @@ class IntroForm extends React.Component {
                     
         
                             <div>
-                                
+                                <h6>What is your puppy's name?</h6>
                                 <input 
-                                type="email" 
-                                name="email" 
-                                placeholder="Email Address"
-                                onChange={e => this.updateEmail(e.target.value)}
+                                type="text" 
+                                name="dog-name" 
+                                placeholder="Puppy's name"
+                                onChange={e => this.updateDogName(e.target.value)}
                                 required />
+                                <button
+                                    className="button"
+                                    onClick={this.nextQuestion}>
+                                    Submit
+                                </button>
                             </div>
                             
-                            <div className="password-box">
-                                
+                            <div>
+                                <h6>What is {this.state.dog_name}'s date of birth?</h6>
                                 <input 
-                                type="password" 
-                                name="password" 
-                                placeholder="Password"
-                                onChange={e => this.updatePassword(e.target.value)}
+                                type="date" 
+                                name="date" 
+                                placeholder="Age"
+                                onChange={e => this.handleDate(e.target.value)}
                                 required />
                                 
                             </div>
 
                             <div>
-                                
+                                <h6>When is {this.state.dog_name} coming home?</h6>
                                 <input 
-                                type="password" 
-                                name="repeat_password" 
-                                placeholder="Re-enter password" 
-                                onChange={e => this.updateRepeatPassword(e.target.value)}
-                                required /> 
+                                type="date" 
+                                name="date" 
+                                placeholder="Age"
+                                onChange={e => this.handleDate(e.target.value)}
+                                required />
+                                
+                            </div>
+
+                            <div>
+                                <h6>What is {this.state.dog_name}'s breed?</h6>
+                                <select 
+                                    name="breed"
+                                    id="breed"
+                                    onChange={this.updateBreed}
+                                    required
+                                    >
+                                    <option value="selectone" selected>Select Breed</option>
+                                    <option value="user">Golden Retriever</option>
+                                    <option value="walker">Golden Doodle</option>
+                                    <option value="walker">Maltese</option>
+                                    <option value="walker">Bernese Mountain Dog</option>
+                                    
+                                    
+                                    
+                                </select>
 
                                 
                             </div>
-                            <div>
-                                {repeat_password !== password ? <p>Passwords do not mach</p> : null}
-                            </div>
+                            
                             <button
                                 type="submit"
                                 className="button"
                             >
-                                Sign Up
+                                Submit
                             </button>
                         </form>
             </>
