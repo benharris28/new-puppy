@@ -15,11 +15,9 @@ class ProductList extends React.Component {
 
     // Add patch to database
 
-    handleCounter = () => {
-        // Count true values in state
-        // Pass true values to context in App.js
-
-        
+    componentDidMount = () => {
+        // GET all products from the database and add them to state
+        // Change activeProducts to state
     }
     
 

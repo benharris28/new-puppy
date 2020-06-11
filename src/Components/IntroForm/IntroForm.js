@@ -11,6 +11,10 @@ class IntroForm extends React.Component {
     }
 
     handleSubmit = () => {
+        // patch user table with dog info
+        // Use context to access loggedInUser
+
+        // Call handlecomplete in IntroPage route to redirect to checklist
         this.context.updateDog()
     }
 
@@ -38,6 +42,7 @@ class IntroForm extends React.Component {
         })
     }
     render() {
+        
         const { error } = this.state;
         
         return (

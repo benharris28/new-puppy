@@ -22,8 +22,15 @@ class LoginPage extends React.Component {
     handleLoginSuccess = (userType, loggedInUser) => {
 
         const { history } = this.props;
+        const { dog_name } = this.context;
+
+        // Will need to hook this up to API
+        if (dog_name === null) {
+            history.push('/intro')
+        } else {
+            history.push('/checklist')
+        }
         
-        history.push('/checklist')
        
     }
 

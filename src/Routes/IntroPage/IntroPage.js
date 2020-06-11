@@ -9,16 +9,26 @@ class IntroPage extends React.Component {
     
     static contextType = ApiContext;
     
+    static defaultProps = {
+        location: {},
+        history: {
+          push: () => {},
+        },
+      }
+
     state = {
         complete: ''
     }
 
-    componentDidMount() {
-        // Update progress status from context
-    }
+    
 
     handleComplete = () => {
-       
+        // Update API with completed values
+        
+
+        // Redirect user to checklist
+        const { history } = this.props;
+        history.push('/checklist')
     }
     
     

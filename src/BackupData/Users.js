@@ -20,7 +20,7 @@ export default {
                     "tag": false,
                     "treats": false,
                 },
-        
+            "product_complete": null,
             "food_selected": null,
             "vet_selected": null,
             "trainer_selected": null,

@@ -17,7 +17,7 @@ import Feeding from './Routes/Feeding/Feeding';
 import NavbarTest from './Components/Navbar/Navbar'
 import HouseTraining from './Routes/HouseTraining/HouseTraining';
 import IntroPage from './Routes/IntroPage/IntroPage';
-import users from './BackupData/Users'
+import Users from './BackupData/Users'
 import './App.css';
 
 class App extends React.Component {
@@ -36,10 +36,14 @@ class App extends React.Component {
     firstDayCount: '',
     guideCount: '',
     loggedInUser: '',
-    users: users
+    activeUser: Users.users[0],
 
   }
 
+
+  componendDidMount = () => {
+    
+  }
 
   handleFirstDayCounter = () => {
     const firstday = [this.state.preparehome, this.state.pickup, this.state.tricks, this.state.feeding, this.state.housetrain]
@@ -82,6 +86,14 @@ class App extends React.Component {
     })
   }
 
+  handleDummyUser = () => {
+    const selectUser = Users.users.find(user => user.id === 1)
+    console.log(selectUser)
+    this.setState({
+      activeUser: selectUser
+    })
+  }
+
   render() {
     const value= {
       products: this.state.products,
@@ -100,8 +112,9 @@ class App extends React.Component {
       users: this.state.users
     }
 
+
+
     console.log(this.state)
-    
     
     
     return (

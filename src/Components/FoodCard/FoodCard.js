@@ -17,6 +17,10 @@ class FoodCard extends React.Component {
         complete: ''
     }
 
+    componentDidMount = () => {
+        // GET food products from api
+    }
+    
     handleComplete = (page) => {
         this.setState({
             complete: true
