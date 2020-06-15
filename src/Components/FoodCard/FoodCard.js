@@ -4,6 +4,7 @@ import { faArrowCircleRight, faArrowCircleLeft} from '@fortawesome/free-solid-sv
 import { Link } from 'react-router-dom'
 import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
 import FoodData from '../../BackupData/FoodData';
+import FoodApiService from '../../services/food-api-service'
 import ApiContext from '../../ApiContext';
 import './FoodCard.css';
 
@@ -13,12 +14,27 @@ class FoodCard extends React.Component {
     static contextType = ApiContext;
 
     state = {
-        selectedOption: 2,
-        complete: ''
+        selectedOption: 1,
+        complete: '',
+        foodItems: '',
+
     }
 
     componentDidMount = () => {
-        // GET food products from api
+       
+        FoodApiService.getAllFood()
+            .then(res => {
+                console.log(res)
+                this.setFood(res)
+
+                })
+
+    }
+
+    setFood = (res) => {
+        this.setState({
+            foodItems: res
+        })
     }
     
     handleComplete = (page) => {
@@ -71,10 +87,10 @@ class FoodCard extends React.Component {
     }
     
     render() {
-        const { selectedOption } = this.state;
-        const totalItems = FoodData.food.length;
+        const { selectedOption, foodItems } = this.state;
+        const totalItems = foodItems.length;
         console.log(totalItems)
-        const selectedFood = FoodData.food.find(selected => selectedOption == selected.id)
+        const selectedFood = foodItems.find(selected => selectedOption == selected.food_id)
         console.log(selectedFood)
         console.log(this.state)
         const pageName = 'foodPage'

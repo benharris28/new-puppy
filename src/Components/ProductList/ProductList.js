@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
 import ApiContext from '../../ApiContext';
+import ProductApiService from '../../services/product-api-service'
 
 class ProductList extends React.Component {
     
     static contextType = ApiContext;
 
     state = {
-        complete: 'false'
+        complete: 'false',
+        displayProducts: []
     }
 
     // Add patch to database
@@ -18,6 +20,19 @@ class ProductList extends React.Component {
     componentDidMount = () => {
         // GET all products from the database and add them to state
         // Change activeProducts to state
+        ProductApiService.getAllProducts()
+            .then(res => {
+                console.log(res)
+                this.setProducts(res)
+
+                })
+
+    }
+
+    setProducts = (res) => {
+        this.setState({
+            displayProducts: res
+        })
     }
     
 
@@ -27,6 +42,8 @@ class ProductList extends React.Component {
         })
         this.context.handleProgress(page)
         this.context.handleProductCounter(1)
+
+        // create item in user service to patch
     }
 
     renderIcon = () => {
@@ -57,6 +74,7 @@ class ProductList extends React.Component {
         const { products } = this.context;
         const activeProducts = products.filter(product => product.active === true)
         const pageName = 'productPage'
+        const { displayProducts } = this.state;
         
         return (
             
@@ -67,7 +85,7 @@ class ProductList extends React.Component {
                 </div>
                                 
                 <div className="checklist-card-container">
-                    {activeProducts.map(product => 
+                    {displayProducts.map(product => 
                                     <ChecklistCard 
                                         key={product.category}
                                         image={product.image} 

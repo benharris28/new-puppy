@@ -10,23 +10,15 @@ export default {
             "start_weight": 10,
             "end_weight": 50,
             "home_date": "2020-06-20 10:00:00",
-                "product_data": {
-                    "dog_crate": true,
-                    "dog_bowl": true,
-                    "collar": true,
-                    "leash": true,
-                    "harness": true,
-                    "poo_bags": true,
-                    "tag": false,
-                    "treats": false,
-                },
-            "product_complete": null,
-            "food_selected": null,
-            "vet_selected": null,
-            "trainer_selected": null,
-            "reading": {
-
-            }
+            "product_complete": false,
+            "food_selected": false,
+            "vet_selected": false,
+            "trainer_selected": false,
+            "preparehome": false,
+            "pickup": false,
+            "tricks": false,
+            "feeding": false,
+            "housetrain": false,
 
             
 
