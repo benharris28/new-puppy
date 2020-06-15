@@ -47,7 +47,7 @@ class Tricks extends React.Component {
     
     render() {
         const { path } = this.props.match
-        const pageName = path.substr(1)
+        const pageName = `${path.substr(1)}_complete`
         console.log(pageName)
         console.log(this.state)
         return (

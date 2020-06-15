@@ -44,6 +44,7 @@ class ProductList extends React.Component {
         this.context.handleProductCounter(1)
 
         // create item in user service to patch
+        
     }
 
     renderIcon = () => {
@@ -73,7 +74,7 @@ class ProductList extends React.Component {
         console.log(counter)
         const { products } = this.context;
         const activeProducts = products.filter(product => product.active === true)
-        const pageName = 'productPage'
+        const pageName = 'product_complete'
         const { displayProducts } = this.state;
         
         return (

@@ -35,7 +35,7 @@ class FirstDayList extends React.Component {
         console.log(this.state)
         const pages = [
             {
-                slug: '/preparehome',
+                slug: '/prephome',
                 page_title: "Prepare your home",
                 next_page: '/pick-up-pup'
             },

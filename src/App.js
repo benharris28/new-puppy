@@ -19,6 +19,7 @@ import HouseTraining from './Routes/HouseTraining/HouseTraining';
 import IntroPage from './Routes/IntroPage/IntroPage';
 import Users from './BackupData/Users'
 import FoodApiService from './services/food-api-service'
+import UsersService from './services/users-api-service'
 import './App.css';
 
 class App extends React.Component {
@@ -26,14 +27,14 @@ class App extends React.Component {
     products: ProductData.products,
     food: FoodData.food,
     productCount: '',
-    productPage: '',
-    foodPage: '',
+    product_complete: '',
+    food_complete: '',
     foodCount: '',
-    preparehome: false,
-    pickup: false,
-    tricks: false,
-    feeding: false,
-    housetrain: false,
+    prephome_complete: false,
+    pickup_complete: false,
+    tricks_complete: false,
+    feeding_complete: false,
+    housetrain_complete: false,
     firstDayCount: '',
     guideCount: '',
     loggedInUser: '',
@@ -60,6 +61,7 @@ setFood = (res) => {
     })
 }
 
+
   handleFirstDayCounter = () => {
     const firstday = [this.state.preparehome, this.state.pickup, this.state.tricks, this.state.feeding, this.state.housetrain]
     const firstDayCounter = Object.values(firstday).filter(Boolean).length + 1
@@ -82,11 +84,20 @@ setFood = (res) => {
   }
 
   handleProgress = (page) => {
-    const { prep_home, pick_up_pup, tricks, first_meal, house_train, productPage, foodPage } = this.state;
     
     this.setState({
       [page]: true
     })
+
+    const id = this.state.activeUser.id
+    
+    const itemToComplete = {
+      [page]: true,
+    }
+     
+   
+    UsersService.markComplete(id, itemToComplete)
+
   }
 
   handleLoggedInUser = () => {
@@ -171,7 +182,7 @@ setFood = (res) => {
                 />
                 <Route
                 exact
-                path={'/preparehome'}
+                path={'/prephome'}
                 component={PrepHome}
                 />
                 <Route

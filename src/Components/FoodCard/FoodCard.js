@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleRight, faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
-import FoodData from '../../BackupData/FoodData';
-import FoodApiService from '../../services/food-api-service'
 import ApiContext from '../../ApiContext';
 import './FoodCard.css';
 
@@ -77,7 +75,7 @@ class FoodCard extends React.Component {
         const selectedFood = foodItems.find(selected => selectedOption == selected.food_id)
         console.log(selectedFood)
         console.log(this.state)
-        const pageName = 'foodPage'
+        const pageName = 'food_complete'
         
         
         return(
