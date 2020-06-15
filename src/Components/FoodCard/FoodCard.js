@@ -16,26 +16,10 @@ class FoodCard extends React.Component {
     state = {
         selectedOption: 1,
         complete: '',
-        foodItems: '',
+        foodItems: this.context.foodItems
 
     }
 
-    componentDidMount = () => {
-       
-        FoodApiService.getAllFood()
-            .then(res => {
-                console.log(res)
-                this.setFood(res)
-
-                })
-
-    }
-
-    setFood = (res) => {
-        this.setState({
-            foodItems: res
-        })
-    }
     
     handleComplete = (page) => {
         this.setState({

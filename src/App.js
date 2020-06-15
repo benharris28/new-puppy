@@ -18,6 +18,7 @@ import NavbarTest from './Components/Navbar/Navbar'
 import HouseTraining from './Routes/HouseTraining/HouseTraining';
 import IntroPage from './Routes/IntroPage/IntroPage';
 import Users from './BackupData/Users'
+import FoodApiService from './services/food-api-service'
 import './App.css';
 
 class App extends React.Component {
@@ -37,13 +38,27 @@ class App extends React.Component {
     guideCount: '',
     loggedInUser: '',
     activeUser: Users.users[0],
+    foodItems: []
 
   }
 
 
-  componendDidMount = () => {
-    
-  }
+  componentDidMount = () => {
+       
+    FoodApiService.getAllFood()
+        .then(res => {
+            console.log(res)
+            this.setFood(res)
+
+            })
+
+}
+
+setFood = (res) => {
+    this.setState({
+        foodItems: res
+    })
+}
 
   handleFirstDayCounter = () => {
     const firstday = [this.state.preparehome, this.state.pickup, this.state.tricks, this.state.feeding, this.state.housetrain]
@@ -109,7 +124,8 @@ class App extends React.Component {
       handleLoggedInUser: this.handleLoggedInUser,
       loggedInUser: this.state.loggedInUser,
       handleLogout: this.handleLogout,
-      users: this.state.users
+      users: this.state.users,
+      foodItems: this.state.foodItems
     }
 
 

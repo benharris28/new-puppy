@@ -4,7 +4,7 @@ const FoodApiService = {
     getAllFood() {
         return fetch(`${config.API_ENDPOINT}/food`, {
             headers: {
-              //'authorization': `bearer ${TokenService.getAuthToken()}`,
+       
             },
         
           })
