@@ -1,12 +1,17 @@
 import React from 'react';
+import ApiContext from '../../ApiContext';
+import UsersApiService from '../../services/users-api-service'
 
 class IntroForm extends React.Component {
+
+    static contextType = ApiContext;
+
     state = {
         error: null,
         dog_name: '',
-        bring_home_date: '',
+        home_date: '',
         dog_birthday: '',
-        dog_breed: '',
+        breed: '',
         questionNum: 1
     }
 
@@ -15,6 +20,21 @@ class IntroForm extends React.Component {
         // Use context to access loggedInUser
 
         // Call handlecomplete in IntroPage route to redirect to checklist
+
+        const { activeUser } = this.context
+        
+        const userId = activeUser.id
+
+        const userUpdate = {
+            dog_name: this.state.dog_name,
+            home_date: this.state.home_date,
+            dog_birthday: this.state.dog_birthday,
+            breed: this.state.breed
+        }
+
+        UsersApiService.updateBio(userId, userUpdate)
+
+        // create api service to patch dog intro
         this.context.updateDog()
     }
 
@@ -24,17 +44,26 @@ class IntroForm extends React.Component {
         })
     }
 
-    handleDate(date) {
+    handleBirthday(date) {
         this.setState({
-            date
+            dog_birthday: date
         })
     }
 
-    updateBreed(date) {
+    handleHomeDate(date) {
         this.setState({
-            date
+            home_date: date
         })
     }
+
+
+    updateBreed = (e) => {
+        e.preventDefault()
+       
+        this.setState({
+          breed: e.target.value
+        })
+      }
     
     nextQuestion = () => {
         this.setState({
@@ -43,7 +72,8 @@ class IntroForm extends React.Component {
     }
     render() {
         
-        const { error } = this.state;
+        const { error, questionNum } = this.state;
+        console.log(this.state)
         
         return (
            
@@ -59,8 +89,8 @@ class IntroForm extends React.Component {
                             </div>
                             
                     
-        
-                            <div>
+                            {questionNum === 1 && 
+                            <div id="questionOne">
                                 <h6>What is your puppy's name?</h6>
                                 <input 
                                 type="text" 
@@ -71,32 +101,50 @@ class IntroForm extends React.Component {
                                 <button
                                     className="button"
                                     onClick={this.nextQuestion}>
-                                    Submit
+                                    Next Question
                                 </button>
                             </div>
-                            
+                            }
+
+                            {questionNum === 2 && 
                             <div>
                                 <h6>What is {this.state.dog_name}'s date of birth?</h6>
                                 <input 
                                 type="date" 
                                 name="date" 
                                 placeholder="Age"
-                                onChange={e => this.handleDate(e.target.value)}
+                                onChange={e => this.handleBirthday(e.target.value)}
                                 required />
+
+                                <button
+                                    className="button"
+                                    onClick={this.nextQuestion}>
+                                    Next Question
+                                </button>
                                 
                             </div>
+                            }
 
+                            {questionNum === 3 &&
                             <div>
                                 <h6>When is {this.state.dog_name} coming home?</h6>
                                 <input 
                                 type="date" 
                                 name="date" 
                                 placeholder="Age"
-                                onChange={e => this.handleDate(e.target.value)}
+                                onChange={e => this.handleHomeDate(e.target.value)}
                                 required />
+
+                                <button
+                                    className="button"
+                                    onClick={this.nextQuestion}>
+                                    Next Question
+                                </button>
                                 
                             </div>
+                            }
 
+                            {questionNum === 4 &&
                             <div>
                                 <h6>What is {this.state.dog_name}'s breed?</h6>
                                 <select 
@@ -106,24 +154,25 @@ class IntroForm extends React.Component {
                                     required
                                     >
                                     <option value="selectone" selected>Select Breed</option>
-                                    <option value="user">Golden Retriever</option>
-                                    <option value="walker">Golden Doodle</option>
-                                    <option value="walker">Maltese</option>
-                                    <option value="walker">Bernese Mountain Dog</option>
+                                    <option value="Golden Retriever">Golden Retriever</option>
+                                    <option value="Golden Doodle">Golden Doodle</option>
+                                    <option value="Maltese">Maltese</option>
+                                    <option value="Bernese Mountain Dog">Bernese Mountain Dog</option>
                                     
                                     
                                     
                                 </select>
-
+                                <button
+                                    type="submit"
+                                    className="button"
+                                >
+                                Submit
+                            </button>
                                 
                             </div>
                             
-                            <button
-                                type="submit"
-                                className="button"
-                            >
-                                Submit
-                            </button>
+                            
+                            }
                         </form>
             </>
         )
