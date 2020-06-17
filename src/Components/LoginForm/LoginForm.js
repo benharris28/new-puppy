@@ -1,5 +1,7 @@
 import React from 'react';
 import ApiContext from '../../ApiContext';
+import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service'
 
 
 
@@ -18,13 +20,27 @@ class LoginForm extends React.Component {
       }
     
       
-    handleApiSubmit = (e) => {
-        const { users } = this.context;
-        const { email } = this.state;
-        
+      handleApiSubmit = (e) => {
+        e.preventDefault()
+        const { email, password } = this.state;
 
-        this.context.handleLoggedInUser()
-        this.props.onLoginSuccess()
+        this.setState({ error: null})
+
+        AuthApiService.postLogin({
+            email: email,
+            password: password,
+        })
+
+        .then(res => {
+            TokenService.saveAuthToken(res.authToken)
+            const user = res.dbUser;
+            this.context.handleActiveUser(user)
+            this.props.onLoginSuccess()
+        })
+        .catch(res => {
+            this.setState({ error: res.error })
+        })
+
         
     }
     
@@ -52,6 +68,7 @@ class LoginForm extends React.Component {
         const { error } = this.state;
         const { users } = this.context;
         const loggedInUser = this.getLoggedInUser()
+        console.log(error)
         
         
         return (

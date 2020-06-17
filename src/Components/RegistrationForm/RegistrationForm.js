@@ -1,4 +1,5 @@
 import React from 'react';
+import AuthApiService from '../../services/auth-api-service';
 
 class RegistrationForm extends React.Component {
     state = {
@@ -7,18 +8,31 @@ class RegistrationForm extends React.Component {
         password: '',
         password_touched: '',
         repeat_password: '',
-        dog_name: '',
-        bring_home_date: '',
-        dog_age: '',
-        dog_breed: ''
+       
     }
 
-    handleSubmit = () => {
-        // Post credentials
-        // Render more info component
+    handleSubmit = (e) => {
 
-        // For static app, forward to login page
-        this.props.onRegistrationSuccess()
+        e.preventDefault(e);
+
+        const { email, password } = this.state;
+
+        const user = {
+            email,
+            password
+        }
+
+        this.setState({ error: null })
+
+        AuthApiService.postUser(user)
+            .then(res => {
+                this.props.onRegistrationSuccess(res)
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+
+     
     }
 
     updateEmail = (email) => {

@@ -38,7 +38,7 @@ class App extends React.Component {
     firstDayCount: '',
     guideCount: '',
     loggedInUser: '',
-    activeUser: Users.users[0],
+    activeUser: '',
     foodItems: []
 
   }
@@ -55,12 +55,18 @@ class App extends React.Component {
 
 }
 
-setFood = (res) => {
-    this.setState({
-        foodItems: res
-    })
-}
+  setFood = (res) => {
+      this.setState({
+          foodItems: res
+      })
+  }
 
+
+  handleActiveUser = (user) => {
+    this.setState({
+      activeUser: user
+    })
+  }
 
   handleFirstDayCounter = () => {
     const firstday = [this.state.preparehome, this.state.pickup, this.state.tricks, this.state.feeding, this.state.housetrain]
@@ -136,7 +142,8 @@ setFood = (res) => {
       loggedInUser: this.state.loggedInUser,
       handleLogout: this.handleLogout,
       users: this.state.users,
-      foodItems: this.state.foodItems
+      foodItems: this.state.foodItems,
+      handleActiveUser: this.handleActiveUser
     }
 
 

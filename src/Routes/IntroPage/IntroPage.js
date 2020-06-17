@@ -24,6 +24,7 @@ class IntroPage extends React.Component {
 
     handleComplete = () => {
         // Update API with completed values
+        //Get user object for active user and set it to activeUser in state
         
 
         // Redirect user to checklist
