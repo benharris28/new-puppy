@@ -7,6 +7,7 @@ import ProductList from '../../Components/ProductList/ProductList'
 import FirstDayList from '../../Components/FirstDayList/FirstDayList'
 import IntroForm from '../../Components/IntroForm/IntroForm'
 import ApiContext from '../../ApiContext';
+import UsersApiService from '../../services/users-api-service';
 import '../Checklist/Checklist.css'
 
 class Checklist extends React.Component {
@@ -20,6 +21,17 @@ class Checklist extends React.Component {
         tabThree: false,
         tabFoud: false
 
+    }
+
+    componentDidMount = () => {
+        // Get user object and pass to context (with refreshed data)
+
+        const { activeUser } = this.context;
+
+        UsersApiService.getActiveUser(activeUser.id)
+            .then(res => {
+                this.context.handleActiveUser(res)
+            })
     }
     
     handleTabOne = () => {

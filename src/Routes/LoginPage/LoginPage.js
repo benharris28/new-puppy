@@ -24,15 +24,14 @@ class LoginPage extends React.Component {
         const { history } = this.props;
         const { activeUser } = this.context;
 
-
-
-        if (activeUser.dog_name === null) {
-            history.push('/intro')
-        } else {
-            history.push('/checklist')
-        }
+        console.log(history)
+        console.log(activeUser)
         
+        const destination = activeUser.dog_name === null ? '/intro' : '/checklist'
+
+        history.push(destination)
        
+        
     }
 
     render() {

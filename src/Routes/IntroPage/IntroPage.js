@@ -48,7 +48,7 @@ class IntroPage extends React.Component {
                     <p>Test content to be filled in later!</p>
                 </div>
                 <div>
-                    <IntroForm />
+                    <IntroForm introSuccess={this.handleComplete}/>
                 </div>
                 
             </div>

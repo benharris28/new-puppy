@@ -36,6 +36,7 @@ class IntroForm extends React.Component {
 
         // create api service to patch dog intro
         this.context.updateDog()
+        this.props.introSuccess()
     }
 
     updateDogName = (name) => {

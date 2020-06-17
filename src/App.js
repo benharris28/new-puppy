@@ -96,6 +96,8 @@ class App extends React.Component {
     })
 
     const id = this.state.activeUser.id
+
+    console.log(id)
     
     const itemToComplete = {
       [page]: true,
@@ -143,7 +145,8 @@ class App extends React.Component {
       handleLogout: this.handleLogout,
       users: this.state.users,
       foodItems: this.state.foodItems,
-      handleActiveUser: this.handleActiveUser
+      handleActiveUser: this.handleActiveUser,
+      activeUser: this.state.activeUser
     }
 
 
