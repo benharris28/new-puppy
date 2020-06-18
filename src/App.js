@@ -39,21 +39,26 @@ class App extends React.Component {
     guideCount: '',
     loggedInUser: '',
     activeUser: '',
-    foodItems: []
+    foodItems: [],
+    displayProducts: []
 
   }
 
 
   componentDidMount = () => {
-       
+      
+    /*
     FoodApiService.getAllFood()
         .then(res => {
             console.log(res)
             this.setFood(res)
+           
 
             })
+            */
 
 }
+
 
   setFood = (res) => {
       this.setState({
@@ -61,16 +66,28 @@ class App extends React.Component {
       })
   }
 
+  setProducts = (res) => {
+    this.setState({
+        displayProducts: res
+    })
+}
 
   handleActiveUser = (user) => {
     this.setState({
-      activeUser: user
+      activeUser: user,
+      prephome_complete: user.prephome_complete,
+      pickup_complete: user.pickup_complete,
+      tricks_complete: user.tricks_complete,
+      feeding_complete: user.feeding_complete,
+      housetrain_complete: user.housetrain_complete
+
     })
+    this.handleFirstDayCounter()
   }
 
   handleFirstDayCounter = () => {
-    const firstday = [this.state.preparehome, this.state.pickup, this.state.tricks, this.state.feeding, this.state.housetrain]
-    const firstDayCounter = Object.values(firstday).filter(Boolean).length + 1
+    const firstday = [this.state.prephome_complete, this.state.pickup_complete, this.state.tricks_complete, this.state.feeding_complete, this.state.housetrain_complete]
+    const firstDayCounter = Object.values(firstday).filter(Boolean).length 
     console.log(firstDayCounter)
     this.setState({
       firstDayCount: firstDayCounter
@@ -139,14 +156,21 @@ class App extends React.Component {
       firstDayCount: this.state.firstDayCount,
       handleProgress: this.handleProgress,
       handleFirstDayCounter: this.handleFirstDayCounter,
-      prep_home: this.state.prep_home,
+      prephome_complete: this.state.prephome_complete,
+      pickup_complete: this.state.pickup_complete,
+      tricks_complete: this.state.tricks_complete,
+      feeding_complete: this.state.feeding_complete,
+      houstrain_complete: this.state.housetrain_complete,
       handleLoggedInUser: this.handleLoggedInUser,
       loggedInUser: this.state.loggedInUser,
       handleLogout: this.handleLogout,
       users: this.state.users,
-      foodItems: this.state.foodItems,
       handleActiveUser: this.handleActiveUser,
-      activeUser: this.state.activeUser
+      activeUser: this.state.activeUser,
+      setProducts: this.setProducts,
+      displayProducts: this.state.displayProducts,
+      setFood: this.setFood,
+      foodItems: this.state.foodItems,
     }
 
 

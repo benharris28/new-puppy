@@ -13,7 +13,9 @@ class Tricks extends React.Component {
     }
 
     componentDidMount() {
-        // Update progress status from context
+        this.setState({
+            complete: this.context.tricks_complete
+        })
     }
 
     handleComplete = (page) => {

@@ -8,6 +8,8 @@ import FirstDayList from '../../Components/FirstDayList/FirstDayList'
 import IntroForm from '../../Components/IntroForm/IntroForm'
 import ApiContext from '../../ApiContext';
 import UsersApiService from '../../services/users-api-service';
+import ProductApiService from '../../services/product-api-service'
+import FoodApiService from '../../services/food-api-service'
 import '../Checklist/Checklist.css'
 
 class Checklist extends React.Component {
@@ -31,6 +33,27 @@ class Checklist extends React.Component {
         UsersApiService.getActiveUser(activeUser.id)
             .then(res => {
                 this.context.handleActiveUser(res)
+            })
+
+        // Get products for product display 
+        // Set those products in context
+
+        ProductApiService.getAllProducts()
+            .then(res => {
+                console.log(res)
+                this.context.setProducts(res)
+
+                })
+
+        
+        // Get food items for foodCard component
+
+        FoodApiService.getAllFood()
+        .then(res => {
+            console.log(res)
+            this.context.setFood(res)
+           
+
             })
     }
     
@@ -119,6 +142,10 @@ class Checklist extends React.Component {
         const { tabOne, tabTwo, tabThree, tabFour } = this.state;
         console.log(this.state)
         const { productCount, foodCount } = this.context;
+        const productComplete = this.context.activeUser.product_complete ? 1 : 0
+        const foodComplete = this.context.activeUser.food_complete ? 1 : 0
+        const firstDayComplete = this.context.firstDayCount ? this.context.firstDayCount : 0
+        
         return(
             <div>
                 <div className="page-header">
@@ -145,7 +172,7 @@ class Checklist extends React.Component {
                                         </div>
                                     
                                         <div className="progress-tracker">
-                                            {this.context.productCount}/1
+                                            {productComplete} / 1
                                         </div>
                                         <div className="dropdown-icon">
                                             <FontAwesomeIcon 
@@ -173,7 +200,7 @@ class Checklist extends React.Component {
                                         </div>
                                     
                                         <div className="progress-tracker">
-                                            {foodCount} / 1
+                                            {foodComplete} / 1
                                         </div>
                                         <div className="dropdown-icon">
                                             <FontAwesomeIcon 
@@ -204,7 +231,7 @@ class Checklist extends React.Component {
                                         </div>
                                     
                                         <div className="progress-tracker">
-                                            {this.context.firstDayCount} / 5
+                                            {firstDayComplete} / 5
                                         </div>
                                         <div className="dropdown-icon">
                                             <FontAwesomeIcon 

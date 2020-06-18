@@ -13,7 +13,9 @@ class Feeding extends React.Component {
     }
 
     componentDidMount() {
-        // Update progress status from context
+        this.setState({
+            complete: this.context.feeding_complete
+        })
     }
 
     handleComplete = (page) => {
@@ -50,6 +52,7 @@ class Feeding extends React.Component {
         const pageName = `${path.substr(1)}_complete`
         console.log(pageName)
         console.log(this.state)
+       
         return (
             <div>
                 <div className="checklist-card-container">

@@ -13,7 +13,9 @@ class PrepHome extends React.Component {
     }
 
     componentDidMount() {
-        // Update progress status from context
+        this.setState({
+            complete: this.context.prephome_complete
+        })
     }
 
     handleComplete = (page) => {

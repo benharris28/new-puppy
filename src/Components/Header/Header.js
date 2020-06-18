@@ -14,7 +14,7 @@ class Header extends React.Component {
       }
 
     renderLogoutLink() {
-        const { loggedInUser } = this.context;
+        const { activeUser } = this.context;
        
       return (
       <>
@@ -51,7 +51,7 @@ class Header extends React.Component {
   
     
     render() {
-        const {loggedInUser } = this.context;
+        const { activeUser } = this.context;
         return (
             <div className="navbar">
                 <div className="navigation-container">
@@ -67,7 +67,7 @@ class Header extends React.Component {
                         <nav 
                             role="navigation" 
                             className="nav-menu w-nav-menu">
-                                {loggedInUser
+                                {activeUser
                                     ? this.renderLogoutLink()
                                     : this.renderLoginLink()}
                             

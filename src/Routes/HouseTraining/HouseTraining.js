@@ -13,7 +13,9 @@ class HouseTraining extends React.Component {
     }
 
     componentDidMount() {
-        // Update progress status from context
+        this.setState({
+            complete: this.context.housetrain_complete
+        })
     }
 
     handleComplete = (page) => {

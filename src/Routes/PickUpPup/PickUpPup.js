@@ -13,14 +13,20 @@ class PickUpPup extends React.Component {
     }
 
     componentDidMount() {
-        // Update progress status from context
+        this.setState({
+            complete: this.context.pickup_complete
+        })
     }
 
     handleComplete = (page) => {
         this.setState({
             complete: true
         })
+
+        // Patches the database with complete progress
         this.context.handleProgress(page)
+
+        // Updates section counter for 24 hour survival
         this.context.handleFirstDayCounter()
     }
     

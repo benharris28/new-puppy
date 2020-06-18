@@ -20,12 +20,20 @@ class ProductList extends React.Component {
     componentDidMount = () => {
         // GET all products from the database and add them to state
         // Change activeProducts to state
+        /*
         ProductApiService.getAllProducts()
             .then(res => {
                 console.log(res)
                 this.setProducts(res)
 
                 })
+
+                */
+        // set complete status to whatever is in context
+        this.setState({
+            displayProducts: this.context.displayProducts,
+            complete: this.context.activeUser.product_complete
+        })
 
     }
 
@@ -44,7 +52,7 @@ class ProductList extends React.Component {
         this.context.handleProductCounter(1)
 
         // create item in user service to patch
-        
+
     }
 
     renderIcon = () => {
@@ -76,6 +84,7 @@ class ProductList extends React.Component {
         const activeProducts = products.filter(product => product.active === true)
         const pageName = 'product_complete'
         const { displayProducts } = this.state;
+        
         
         return (
             

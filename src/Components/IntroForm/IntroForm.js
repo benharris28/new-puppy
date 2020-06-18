@@ -15,12 +15,10 @@ class IntroForm extends React.Component {
         questionNum: 1
     }
 
-    handleSubmit = () => {
-        // patch user table with dog info
-        // Use context to access loggedInUser
-
-        // Call handlecomplete in IntroPage route to redirect to checklist
-
+    handleSubmit = (e) => {
+       e.preventDefault(e);
+        
+        // Pull the active user from context to use in patch to database
         const { activeUser } = this.context
         
         const userId = activeUser.id
@@ -33,10 +31,13 @@ class IntroForm extends React.Component {
         }
 
         UsersApiService.updateBio(userId, userUpdate)
+           
 
-        // create api service to patch dog intro
-        this.context.updateDog()
+        // Call handlecomplete in IntroPage route to redirect to checklist
         this.props.introSuccess()
+
+     
+        
     }
 
     updateDogName = (name) => {
