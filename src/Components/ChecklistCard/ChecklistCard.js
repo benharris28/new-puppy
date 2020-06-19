@@ -10,7 +10,7 @@ class ChecklistCard extends React.Component {
     
 
     render() {
-        const { image, category, brand, price, description, purchaseText, purchaes_link } = this.props;
+        const { image, category, brand, price, description, purchaseText, purchase_link } = this.props;
         
             return (
             <> 
@@ -30,14 +30,19 @@ class ChecklistCard extends React.Component {
                         </div>
                         
                         <p>{description}</p>
-                        <div className="button-container">
-                            <div className="checklist-card-button">
-                                <p>{purchaseText}</p>
+
+                        <a target='_blank' href={`${purchase_link}`}>
+                            <div className="button-container">
+                                <div className="checklist-card-button">
+                                    <p>{purchaseText}</p>
+                                </div>
                             </div>
+                        </a>
+
                             
                                 
                             
-                        </div>
+                       
                         
 
                     </div>

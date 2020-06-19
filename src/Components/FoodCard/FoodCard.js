@@ -127,9 +127,12 @@ class FoodCard extends React.Component {
                         </div>
                         
                         <p>{selectedFood.description_text}</p>
-                        <div className="food-card-button">
-                            <p>{selectedFood.purchase_text}</p>
-                        </div>
+
+                        <a target='_blank' href={`${selectedFood.link}`}>
+                            <div className="food-card-button">
+                                <p>{selectedFood.purchase_text}</p>
+                            </div>
+                        </a>
 
                     </div>
 

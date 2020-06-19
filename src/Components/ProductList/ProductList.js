@@ -104,7 +104,7 @@ class ProductList extends React.Component {
                                         price={product.price}
                                         description={product.description_text}
                                         purchaseText={product.purchase_text}
-                                        purchaes_link={product.canada_link}
+                                        purchase_link={product.canada_link}
                                         handleComplete={this.handleComplete}
                                          />)}  
                             

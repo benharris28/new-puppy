@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ApiContext from '../../ApiContext';
+import TokenService from '../../services/token-service'
 
 import './Header.css'
 
@@ -9,7 +10,7 @@ class Header extends React.Component {
     static contextType = ApiContext;
     
     handleLogoutClick = () => {
-       
+        TokenService.clearAuthToken()
         this.context.handleLogout()
       }
 
@@ -67,7 +68,7 @@ class Header extends React.Component {
                         <nav 
                             role="navigation" 
                             className="nav-menu w-nav-menu">
-                                {activeUser
+                                {TokenService.hasAuthToken()
                                     ? this.renderLogoutLink()
                                     : this.renderLoginLink()}
                             
